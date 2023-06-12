@@ -41,7 +41,7 @@ if (rankString === 'VIP') {
 
 }
 
-let rankClass = !props.monthly || props.monthly !== "NONE" ? "rank " + props.monthlyColor ?? "AQUA" : (rankString === "MVP" ? "rank AQUA" : "rank GREEN");
+let rankClass = !props.monthly || props.monthly !== "NONE" ? "rank " + (props.monthlyColor !== undefined ? props.monthlyColor : "AQUA") : (rankString === "MVP" ? "rank AQUA" : "rank GREEN");
 if (rankString !== 'MVP' && rankString !== 'VIP') rankClass = 'rank';
 if (rankString === 'VIP') rankClass = 'rank GREEN';
 let borderColor = rankClass.replace("rank", "");
