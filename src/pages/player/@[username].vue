@@ -54,8 +54,10 @@
 <script setup>
 import { SkinViewer, PlayerAnimation } from "skinview3d";
 
+const route = useRoute()
 
-const { data } = await useFetch('https://api.bradn.dev/api/v1/minecraft/player/bradn');
+
+const { data } = await useFetch('https://api.bradn.dev/api/v1/minecraft/player/' + route.params.username);
 
 useSeoMeta({
   title: data.value.username + " | bradn stats",
