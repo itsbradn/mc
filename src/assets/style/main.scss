@@ -161,27 +161,13 @@ h5 {
       font-weight: 400;
       color: var(--text-400);
     }
-    > .divider {
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        var(--border-color-light) 5%,
-        var(--border-color-light) 50%,
-        transparent 80%
-      );
-      margin-left: -5px;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      height: 1px;
-    }
 
     > .overview-stats {
       display: flex;
       width: 75%;
       justify-content: space-between;
 
-      > .stat {
+      > .header-stat {
         > h1 {
           font-weight: 400;
           color: var(--text-300);
@@ -202,6 +188,27 @@ h5 {
   }
 }
 
+.divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-color-light) 5%,
+    var(--border-color-light) 50%,
+    transparent 80%
+  );
+  margin-left: -5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 1px;
+
+  &.margin-card {
+    margin-left: 1.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
 section {
   width: 100%;
   > * {
@@ -214,10 +221,83 @@ section {
 }
 
 .card {
-  min-height: 275px;
+  min-height: 200px;
   display: flex;
   border-radius: 8px;
   background-color: var(--background-card);
+  flex-direction: column;
+
+  &.multi {
+    background-color: transparent;
+    flex-direction: column;
+    gap: 1rem;
+
+    > .sub-card {
+      width: 100%;
+      background-color: var(--background-card);
+      flex: 1;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+
+      > .stat {
+        > .content {
+          margin-top: -2rem;
+          margin-bottom: -2rem;
+        }
+        &:first-child {
+          > .content {
+            margin-top: 0;
+          }
+        }
+        &:last-child {
+          > .content {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  > .stat {
+    > .content {
+      margin-top: -2rem;
+      margin-bottom: -2rem;
+    }
+    &:first-child {
+      > .content {
+        margin-top: 0;
+      }
+    }
+    &:last-child {
+      > .content {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.stat {
+  margin: 2rem;
+  display: flex;
+  width: 100%;
+
+  > .content {
+    flex-grow: 1;
+    > h1 {
+      font-weight: 400;
+      color: var(--text-300);
+      font-size: 15px;
+    }
+    > h2 {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  &.center {
+    align-items: center;
+  }
 }
 
 .player-content {
@@ -269,4 +349,80 @@ section {
       box-shadow: 0px 0px 8px 0px rgba(var(--skin-highlight), 0.7);
     }
   }
+}
+
+.mc-rank {
+  font-family: "Minecraft", sans-serif;
+  font-size: 16px;
+  > * {
+    font-family: "Minecraft", sans-serif;
+  }
+}
+
+.BLACK {
+  color: #000000;
+}
+
+.DARK_BLUE {
+  color: #0000aa;
+}
+
+.DARK_GREEN {
+  color: #00aa00;
+}
+
+.DARK_AQUA {
+  color: #00aaaa;
+}
+
+.DARK_RED {
+  color: #aa0000;
+}
+
+.DARK_PURPLE {
+  color: #aa00aa;
+}
+
+.GOLD {
+  color: #ffaa00;
+}
+
+.GRAY {
+  color: #aaaaaa;
+}
+
+.DARK_GRAY {
+  color: #555555;
+}
+
+.BLUE {
+  color: #5555ff;
+}
+
+.GREEN {
+  color: #55ff55;
+}
+
+.AQUA {
+  color: #55ffff;
+}
+
+.RED {
+  color: #ff5555;
+}
+
+.LIGHT_PURPLE {
+  color: #ff55ff;
+}
+
+.YELLOW {
+  color: #ffff55;
+}
+
+.WHITE {
+  color: #ffffff;
+}
+
+.gap {
+  margin-bottom: 1rem;
 }

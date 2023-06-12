@@ -17,6 +17,12 @@ export default defineNuxtConfig({
         {
           src: "/script/vibrant.min.js",
         },
+        {
+          src: "https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js",
+        },
+        {
+          src: "https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js",
+        }
       ],
     },
   },

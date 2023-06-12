@@ -1,45 +1,127 @@
 <template>
-  <section>
+  <section v-if="mojang">
     <div class="section-content">
       <div class="player-pages">
         <button class="page-btn active">Overview</button>
-        <button class="page-btn">Bedwars</button>
-        <button class="page-btn">Skyblock</button>
-        <button class="page-btn">Skywars</button>
-        <button class="page-btn">Duels</button>
+        <button class="page-btn" v-if="hypixel">Bedwars</button>
+        <button class="page-btn" v-if="hypixel">Skyblock</button>
+        <button class="page-btn" v-if="hypixel">Skywars</button>
+        <button class="page-btn" v-if="hypixel">Duels</button>
       </div>
       <div class="player-content">
         <div class="content-main">
           <div class="player-header">
             <div class="details">
-              <h1>{{ data.username }}</h1>
+              <h1>{{ mojang.username }}</h1>
               <h2>500 views / month</h2>
-              <div class="divider"></div>
-              <div class="overview-stats">
-                <div class="stat">
-                  <h1>Friends</h1>
-                  <h2>345</h2>
-                </div>
-                <div class="stat">
+              <div class="divider" v-if="hypixel"></div>
+              <div class="overview-stats" v-if="hypixel">
+                <div class="header-stat">
                   <h1>Level</h1>
-                  <h2>5,432</h2>
+                  <h2><Number v-bind:number="hypixel.level" /></h2>
                 </div>
-                <div class="stat">
+                <div class="header-stat">
+                  <h1>Achievement Points</h1>
+                  <h2><Number v-bind:number="hypixel.achievementPoints" /></h2>
+                </div>
+                <div class="header-stat">
                   <h1>Karma</h1>
-                  <h2>11,580,615</h2>
+                  <h2><Number v-bind:number="hypixel.karma" :big="true" /></h2>
                 </div>
               </div>
             </div>
             <div class="skin">
-          <canvas id="skin_container"></canvas></div>
+              <canvas id="skin_container"></canvas>
+            </div>
           </div>
           <div class="card"></div>
         </div>
         <div class="content-sub">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
+          <!-- <div class="card multi" v-if="hypixel">
+            <div class="sub-card">
+              <div class="stat center">
+                <div class="content">
+                  <h1>Rank</h1>
+                  <h2>
+                    <Rank
+                      :rank="hypixel.newPackageRank"
+                      :monthly="hypixel.monthlyPackageRank"
+                      :plusColor="hypixel.rankPlusColor"
+                      :monthlyColor="hypixel.monthlyRankColor"
+                      :otherRank="hypixel.rank"
+                      :otherPrefix="hypixel.prefix"
+                    />
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="sub-card">
+              <div class="stat center">
+                <div class="content">
+                  <h1>First Login</h1>
+                  <h2><DateFormat :date="hypixel.firstLogin" /></h2>
+                </div>
+              </div>
+            </div>
+            <div class="sub-card" v-if="hypixel.lastLogin">
+              <div class="stat center">
+                <div class="content">
+                  <h1>Last Login</h1>
+                  <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="card" v-if="hypixel">
+              <div class="stat center">
+                <div class="content">
+                  <h1>Rank</h1>
+                  <h2>
+                    <Rank
+                      :rank="hypixel.newPackageRank"
+                      :monthly="hypixel.monthlyPackageRank"
+                      :plusColor="hypixel.rankPlusColor"
+                      :monthlyColor="hypixel.monthlyRankColor"
+                      :otherRank="hypixel.rank"
+                      :otherPrefix="hypixel.prefix"
+                    />
+                  </h2>
+                </div>
+              </div>
+              <div class="divider margin-card"></div>
+              <div class="stat center">
+                <div class="content">
+                  <h1>First Login</h1>
+                  <h2><DateFormat :date="hypixel.firstLogin" /></h2>
+                </div>
+              </div>
+              <div class="stat center" v-if="hypixel.lastLogin">
+                <div class="content">
+                  <h1>Last Login</h1>
+                  <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
+                </div>
+              </div>
+          </div>
+          <div class="card" v-if="hypixel">
+            <div class="stat center">
+              <div class="content">
+                <h1>Reward Streak High Score</h1>
+                <h2><Number :number="hypixel.rewardHighScore" /></h2>
+              </div>
+            </div>
+            <div class="stat center">
+              <div class="content">
+                <h1>Reward Streak</h1>
+                <h2><Number :number="hypixel.rewardStreak" /></h2>
+              </div>
+            </div>
+            <div class="stat center">
+              <div class="content">
+                <h1>Total Claimed</h1>
+                <h2><Number :number="hypixel.totalRewards" /></h2>
+              </div>
+            </div>
+          </div>
           <div class="card"></div>
           <div class="card"></div>
           <div class="card"></div>
@@ -47,33 +129,57 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+declare global {
+  class Vibrant {
+    static from(src: any): any;
+  }
+}
 import { SkinViewer, PlayerAnimation } from "skinview3d";
+import { MinecraftPlayerResponse } from "../../types/minecraftPlayer";
+import Number from "~/components/Number.vue";
 
-const route = useRoute()
+const route = useRoute();
 
-
-const { data } = await useFetch('https://api.bradn.dev/api/v1/minecraft/player/' + route.params.username);
+const { data: mojang } = await useFetch<MinecraftPlayerResponse>(
+  "https://api.bradn.dev/api/v1/minecraft/player/" + route.params.username
+);
+const { data: hypixel } = await useFetch<any>(
+  "https://api.bradn.dev/api/v1/minecraft/hypixel/" + mojang.value?.uuid,
+  { server: false }
+);
 
 useSeoMeta({
-  title: data.value.username + " | bradn stats",
-  ogTitle: data.value.username + " | bradn stats",
-  ogImage: `https://mc-heads.net/head/${data.value.uuid}`,
-  themeColor: "#FC5C7D"
-})
+  title: mojang.value
+    ? mojang.value.username + " | bradn stats"
+    : "bradn stats",
+  ogTitle: mojang.value
+    ? mojang.value.username + " | bradn stats"
+    : "bradn stats",
+  ogImage: `https://mc-heads.net/head/${
+    mojang.value ? mojang.value.uuid : "MHF_Steve"
+  }`,
+  themeColor: "#FC5C7D",
+});
+useHead({
+  link: [
+    {
+      hid: "icon",
+      rel: "icon",
+      type: "image/png",
+      href: `https://mc-heads.net/head/${
+        mojang.value ? mojang.value.uuid : "MHF_Steve"
+      }`,
+    },
+  ],
+});
 
 onMounted(() => {
   class StillAnim extends PlayerAnimation {
-    constructor() {
-      super(...arguments);
-    }
-
-    animate(player) {
-      
+    animate(player: any) {
       // Multiply by animation's natural speed
       const t = this.progress * 1;
       // Leg swing
@@ -104,24 +210,27 @@ onMounted(() => {
     }
   }
 
+  if (!mojang.value) throw new Error("no response");
+
   let skinViewer = new SkinViewer({
-    canvas: document.getElementById("skin_container"),
+    canvas: document.getElementById("skin_container") as HTMLCanvasElement,
     width: 225,
     height: 325,
-    skin: data.value.skin.url,
-    cape: data.value.cape ? data.value.cape.url : undefined,
+    skin: mojang.value.skin.url,
+    cape: mojang.value.cape ? mojang.value.cape.url : undefined,
   });
 
   // skinViewer.loadCape("/img/demo-cape.webp", { backEquipment: "elytra" });
   skinViewer.animation = new StillAnim();
-
-  Vibrant.from(data.value.skin.url).getPalette().then(function (palette) {
-    let vib = palette['Vibrant'].getRgb();
-    console.log(vib);
-    document.documentElement.style.setProperty(
-      "--skin-highlight",
-      vib.join(", ")
-    );
-  });
+  Vibrant.from(mojang.value.skin.url)
+    .getPalette()
+    .then(function (palette: any) {
+      let vib = palette["Vibrant"].getRgb();
+      console.log(vib);
+      document.documentElement.style.setProperty(
+        "--skin-highlight",
+        vib.join(", ")
+      );
+    });
 });
 </script>
