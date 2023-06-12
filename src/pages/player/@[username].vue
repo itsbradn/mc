@@ -117,8 +117,8 @@
             </div>
             <div class="stat center">
               <div class="content">
-                <h1>Total Claimed</h1>
-                <h2><Number :number="hypixel.totalRewards" /></h2>
+                <h1>Total Daily Rewards</h1>
+                <h2><Number :number="hypixel.totalDailyRewards" />/<Number :number="hypixel.totalRewards" /></h2>
               </div>
             </div>
           </div>
