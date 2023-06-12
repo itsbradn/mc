@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fnt/minecraft.woff2") format("woff2");
+}
+
 :root {
   --text-900: #4a4a4f;
   --text-800: #545359;
@@ -10,17 +15,26 @@
   --text-100: #ffffff;
 
   --border-color: #151416;
-  --border-color-light: #252427;
+  --border-color-light: #373c4a;
+
+  --background-primary: 6, 12, 17;
+  --background-card: #12151d;
+  --background-card-btn: #1c202b;
+  --background-card-btn-hvr: #262a36;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: rgb(var(--background-primary));
   color: var(--text-100);
   font-family: "Poppins", sans-serif;
   scrollbar-color: #201e21 transparent;
   scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
 }
 
 h1,
@@ -34,7 +48,7 @@ h5 {
 
 .header {
   backdrop-filter: blur(80px);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(var(--background-primary), 0.5);
   position: sticky;
   z-index: 5;
   left: 0;
@@ -107,6 +121,152 @@ h5 {
 
     &__nav-btn {
       font-size: 14px;
+    }
+  }
+}
+
+#skin_container {
+}
+
+.skin-thief {
+  display: none;
+}
+
+.player-header {
+  height: 275px;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 130px 100px 140px -90px rgba(var(--skin-highlight), 0.2);
+  // background: linear-gradient(
+  //   150deg,
+  //   rgb(22, 22, 23) 60%,
+  //   rgba(var(--skin-highlight), 0.3) 100%
+  // );
+  background: radial-gradient(
+    ellipse at 140% 100%,
+    rgba(var(--skin-highlight), 0.1) 0%,
+    rgba(var(--skin-highlight), 0.1) 30%,
+    rgba(var(--skin-highlight), 0) 65%
+  );
+  background-color: var(--background-card);
+  > .details {
+    width: 100%;
+    padding: 2rem;
+    > h1 {
+      font-weight: 600;
+      font-size: 32px;
+    }
+    > h2 {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-400);
+    }
+    > .divider {
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--border-color-light) 5%,
+        var(--border-color-light) 50%,
+        transparent 80%
+      );
+      margin-left: -5px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 1px;
+    }
+
+    > .overview-stats {
+      display: flex;
+      width: 75%;
+      justify-content: space-between;
+
+      > .stat {
+        > h1 {
+          font-weight: 400;
+          color: var(--text-300);
+          font-size: 15px;
+        }
+        > h2 {
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  > .skin {
+    height: 275px;
+    > canvas {
+      transform: translateY(-50px);
+    }
+  }
+}
+
+section {
+  width: 100%;
+  > * {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    height: 100%;
+  }
+}
+
+.card {
+  min-height: 275px;
+  display: flex;
+  border-radius: 8px;
+  background-color: var(--background-card);
+}
+
+.player-content {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  > .content-main {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  > .content-sub {
+    width: 30%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+.player-pages {
+  height: 40px;
+  display: inline-block;
+  background-color: var(--background-card);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+
+  > .page-btn {
+    border: none;
+    border-radius: 4px;
+    height: 100%;
+    flex: 1;
+    background-color: var(--background-card-btn);
+    color: var(--text-100);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+
+    &:hover {
+      background-color: var(--background-card-btn-hvr);
+    }
+
+    &.active {
+      background-color: rgb(var(--skin-highlight));
+      box-shadow: 0px 0px 8px 0px rgba(var(--skin-highlight), 0.7);
     }
   }
 }
