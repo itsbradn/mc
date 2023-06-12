@@ -12,7 +12,7 @@
         <div class="content-main">
           <div class="player-header">
             <div class="details">
-              <h1>username</h1>
+              <h1>{{ data.username }}</h1>
               <h2>500 views / month</h2>
               <div class="divider"></div>
               <div class="overview-stats">
@@ -54,6 +54,16 @@
 <script setup>
 import { SkinViewer, PlayerAnimation } from "skinview3d";
 
+
+const { data } = await useFetch('https://api.bradn.dev/api/v1/minecraft/player/bradn');
+
+useSeoMeta({
+  title: data.value.username + " | bradn stats",
+  ogTitle: data.value.username + " | bradn stats",
+  ogImage: `https://mc-heads.net/head/${data.value.uuid}`,
+  themeColor: "#FC5C7D"
+})
+
 onMounted(() => {
   class StillAnim extends PlayerAnimation {
     constructor() {
@@ -61,6 +71,7 @@ onMounted(() => {
     }
 
     animate(player) {
+      
       // Multiply by animation's natural speed
       const t = this.progress * 1;
       // Leg swing
@@ -95,14 +106,14 @@ onMounted(() => {
     canvas: document.getElementById("skin_container"),
     width: 225,
     height: 325,
-    skin: "/img/demo-skin.png",
-    cape: "/img/demo-cape.webp",
+    skin: data.value.skin.url,
+    cape: data.value.cape ? data.value.cape.url : undefined,
   });
 
   // skinViewer.loadCape("/img/demo-cape.webp", { backEquipment: "elytra" });
   skinViewer.animation = new StillAnim();
 
-  Vibrant.from('/img/demo-skin.png').getPalette().then(function (palette) {
+  Vibrant.from(data.value.skin.url).getPalette().then(function (palette) {
     let vib = palette['Vibrant'].getRgb();
     console.log(vib);
     document.documentElement.style.setProperty(
