@@ -45,7 +45,7 @@
               <canvas id="skin_container"></canvas>
             </div>
           </div>
-          <Accordion title="TNT Games" v-if="hypixel">
+          <Accordion id="tnt-games" title="TNT Games" v-if="hypixel">
             <StatsTNTGames :stats="hypixel" />
           </Accordion>
         </div>

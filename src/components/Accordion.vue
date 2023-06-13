@@ -23,15 +23,7 @@ onMounted(() => {
     let openHeight = content.getBoundingClientRect().height + closedHeight;
     e.style.height = `${closedHeight}px`;
 
-    header.addEventListener("click", () => {
-      const accords = document.querySelectorAll(".accordion");
-      for (const accord of accords) {
-        if (!accord.classList.contains("open")) continue;
-        const accordContent = accord.children[1];
-        accord.classList.remove("open");
-        accord.style.height = `${closedHeight}px`;
-        accordContent.style.opacity = `0%`;
-      }
+    header.addEventListener("click", (v) => {
 
       if (!e.classList.contains("open")) {
         openHeight = content.getBoundingClientRect().height + closedHeight;
