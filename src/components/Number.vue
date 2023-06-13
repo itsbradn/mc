@@ -27,5 +27,6 @@ function nFormatter(num, digits) {
   return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
 }
 
-let num = props.big ?  nFormatter(number.value, 2) : number.value.toLocaleString();
+let num = props.big ?  nFormatter(number.value ?? 0, 2) : number.value?.toLocaleString();
+if (number.value === undefined || number.value === null) num = 0;
 </script>
