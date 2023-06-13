@@ -462,10 +462,12 @@ section {
     opacity: 0%;
     transition: opacity 150ms ease-in-out, transform 200ms ease-in-out;
     transform: translateY(-20px);
+    pointer-events: none;
   }
 
   &.open > .accordion__content {
     transform: translateY(0px);
+    pointer-events: all;
   }
 }
 

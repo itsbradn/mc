@@ -37,6 +37,9 @@
           <Accordion title="TNT Games" v-if="hypixel">
             <StatsTNTGames :stats="hypixel" />
           </Accordion>
+          <Accordion title="TNT Games2" v-if="hypixel">
+            <StatsTNTGames :stats="hypixel" />
+          </Accordion>
         </div>
         <div class="content-sub">
           <div class="card" v-if="hypixel">
@@ -193,7 +196,6 @@ onMounted(() => {
     .getPalette()
     .then(function (palette: any) {
       let vib = palette["Vibrant"].getRgb();
-      console.log(vib);
       document.documentElement.style.setProperty(
         "--skin-highlight",
         vib.join(", ")
