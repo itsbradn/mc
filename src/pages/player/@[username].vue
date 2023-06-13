@@ -12,15 +12,17 @@
         <div class="content-main">
           <div class="player-header">
             <div class="details">
-              <h1 v-if="hypixel"><Rank
-                    :username="mojang.username"
-                      :rank="hypixel.newPackageRank"
-                      :monthly="hypixel.monthlyPackageRank"
-                      :plusColor="hypixel.rankPlusColor"
-                      :monthlyColor="hypixel.monthlyRankColor"
-                      :otherRank="hypixel.rank"
-                      :otherPrefix="hypixel.prefix"
-                    /></h1>
+              <h1 v-if="hypixel">
+                <Rank
+                  :username="mojang.username"
+                  :rank="hypixel.newPackageRank"
+                  :monthly="hypixel.monthlyPackageRank"
+                  :plusColor="hypixel.rankPlusColor"
+                  :monthlyColor="hypixel.monthlyRankColor"
+                  :otherRank="hypixel.rank"
+                  :otherPrefix="hypixel.prefix"
+                />
+              </h1>
               <h1 v-else>{{ mojang.username }}</h1>
               <h2>500 views / month</h2>
               <div class="divider" v-if="hypixel"></div>
@@ -46,41 +48,38 @@
           <Accordion title="TNT Games" v-if="hypixel">
             <StatsTNTGames :stats="hypixel" />
           </Accordion>
-          <Accordion title="TNT Games2" v-if="hypixel">
-            <StatsTNTGames :stats="hypixel" />
-          </Accordion>
         </div>
         <div class="content-sub">
           <div class="card" v-if="hypixel">
-              <div class="stat center">
-                <div class="content">
-                  <h1>Rank</h1>
-                  <h2>
-                    <Rank
+            <div class="stat center">
+              <div class="content">
+                <h1>Rank</h1>
+                <h2>
+                  <Rank
                     :username="mojang.username"
-                      :rank="hypixel.newPackageRank"
-                      :monthly="hypixel.monthlyPackageRank"
-                      :plusColor="hypixel.rankPlusColor"
-                      :monthlyColor="hypixel.monthlyRankColor"
-                      :otherRank="hypixel.rank"
-                      :otherPrefix="hypixel.prefix"
-                    />
-                  </h2>
-                </div>
+                    :rank="hypixel.newPackageRank"
+                    :monthly="hypixel.monthlyPackageRank"
+                    :plusColor="hypixel.rankPlusColor"
+                    :monthlyColor="hypixel.monthlyRankColor"
+                    :otherRank="hypixel.rank"
+                    :otherPrefix="hypixel.prefix"
+                  />
+                </h2>
               </div>
-              <div class="divider margin-card"></div>
-              <div class="stat center">
-                <div class="content">
-                  <h1>First Login</h1>
-                  <h2><DateFormat :date="hypixel.firstLogin" /></h2>
-                </div>
+            </div>
+            <div class="divider margin-card"></div>
+            <div class="stat center">
+              <div class="content">
+                <h1>First Login</h1>
+                <h2><DateFormat :date="hypixel.firstLogin" /></h2>
               </div>
-              <div class="stat center" v-if="hypixel.lastLogin">
-                <div class="content">
-                  <h1>Last Login</h1>
-                  <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
-                </div>
+            </div>
+            <div class="stat center" v-if="hypixel.lastLogin">
+              <div class="content">
+                <h1>Last Login</h1>
+                <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
               </div>
+            </div>
           </div>
           <div class="card" v-if="hypixel">
             <div class="stat center">
@@ -98,7 +97,11 @@
             <div class="stat center">
               <div class="content">
                 <h1>Total Daily Rewards</h1>
-                <h2><Number :number="hypixel.totalDailyRewards" />/<Number :number="hypixel.totalRewards" /></h2>
+                <h2>
+                  <Number :number="hypixel.totalDailyRewards" />/<Number
+                    :number="hypixel.totalRewards"
+                  />
+                </h2>
               </div>
             </div>
           </div>
