@@ -34,44 +34,11 @@
               <canvas id="skin_container"></canvas>
             </div>
           </div>
-          <div class="card"></div>
+          <Accordion title="TNT Games" v-if="hypixel">
+            <StatsTNTGames :stats="hypixel" />
+          </Accordion>
         </div>
         <div class="content-sub">
-          <!-- <div class="card multi" v-if="hypixel">
-            <div class="sub-card">
-              <div class="stat center">
-                <div class="content">
-                  <h1>Rank</h1>
-                  <h2>
-                    <Rank
-                      :rank="hypixel.newPackageRank"
-                      :monthly="hypixel.monthlyPackageRank"
-                      :plusColor="hypixel.rankPlusColor"
-                      :monthlyColor="hypixel.monthlyRankColor"
-                      :otherRank="hypixel.rank"
-                      :otherPrefix="hypixel.prefix"
-                    />
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="sub-card">
-              <div class="stat center">
-                <div class="content">
-                  <h1>First Login</h1>
-                  <h2><DateFormat :date="hypixel.firstLogin" /></h2>
-                </div>
-              </div>
-            </div>
-            <div class="sub-card" v-if="hypixel.lastLogin">
-              <div class="stat center">
-                <div class="content">
-                  <h1>Last Login</h1>
-                  <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="card" v-if="hypixel">
               <div class="stat center">
                 <div class="content">

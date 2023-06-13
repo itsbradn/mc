@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         },
         {
           src: "https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js",
-        }
+        },
       ],
     },
   },
