@@ -1,11 +1,12 @@
 <template>
-  <span class="mc-rank" v-if="rankString !== 'Default'"><span :class="borderColor">[</span><span :class="rankClass">{{ rankString }}</span><span v-if="plus !== ''" :class="plusClass">{{ plus }}</span><span :class="borderColor">]</span></span>
+  <span class="mc-rank" v-if="rankString !== 'Default'"><span :class="borderColor">[</span><span :class="rankClass">{{ rankString }}</span><span v-if="plus !== ''" :class="plusClass">{{ plus }}</span><span :class="borderColor">] {{ props.username }}</span></span>
   <span class="mc-rank GRAY" v-else>Default</span>
 </template>
 
 <script setup>
 
 const props = defineProps({
+  username: String,
   rank: String,
   monthly: String,
   plusColor: String,

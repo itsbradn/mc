@@ -12,7 +12,16 @@
         <div class="content-main">
           <div class="player-header">
             <div class="details">
-              <h1>{{ mojang.username }}</h1>
+              <h1 v-if="hypixel"><Rank
+                    :username="mojang.username"
+                      :rank="hypixel.newPackageRank"
+                      :monthly="hypixel.monthlyPackageRank"
+                      :plusColor="hypixel.rankPlusColor"
+                      :monthlyColor="hypixel.monthlyRankColor"
+                      :otherRank="hypixel.rank"
+                      :otherPrefix="hypixel.prefix"
+                    /></h1>
+              <h1 v-else>{{ mojang.username }}</h1>
               <h2>500 views / month</h2>
               <div class="divider" v-if="hypixel"></div>
               <div class="overview-stats" v-if="hypixel">
@@ -48,6 +57,7 @@
                   <h1>Rank</h1>
                   <h2>
                     <Rank
+                    :username="mojang.username"
                       :rank="hypixel.newPackageRank"
                       :monthly="hypixel.monthlyPackageRank"
                       :plusColor="hypixel.rankPlusColor"
@@ -189,6 +199,8 @@ onMounted(() => {
     skin: mojang.value.skin.url,
     cape: mojang.value.cape ? mojang.value.cape.url : undefined,
   });
+
+  skinViewer.controls.enableZoom = false;
 
   // skinViewer.loadCape("/img/demo-cape.webp", { backEquipment: "elytra" });
   skinViewer.animation = new StillAnim();
