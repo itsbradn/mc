@@ -437,7 +437,8 @@ section {
   overflow: hidden;
   background-color: var(--background-card);
   border-radius: 8px;
-  transition: height 100ms ease-in-out;
+  transition: height 150ms ease-in-out;
+
   &__header {
     height: 65px;
     display: flex;
@@ -446,6 +447,8 @@ section {
     user-select: none;
     justify-content: space-between;
     cursor: pointer;
+    background-color: var(--background-card);
+    z-index: 2;
 
     > .header__title {
       font-weight: 600;
@@ -453,10 +456,16 @@ section {
   }
 
   &__content {
+    z-index: 1;
     padding: 2rem;
     padding-top: 0;
     opacity: 0%;
-    transition: opacity 75ms ease-in-out;
+    transition: opacity 150ms ease-in-out, transform 200ms ease-in-out;
+    transform: translateY(-20px);
+  }
+
+  &.open > .accordion__content {
+    transform: translateY(0px);
   }
 }
 
