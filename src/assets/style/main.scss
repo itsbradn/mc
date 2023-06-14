@@ -13,6 +13,8 @@
   --border-color-light: #373c4a;
 
   --background-primary: 6, 12, 17;
+  --background-footer: #12151d;
+  --background-secondary: #1a1d27;
   --background-card: #12151d;
   --background-card-btn: #1c202b;
   --background-card-btn-hvr: #262a36;
@@ -120,9 +122,6 @@ h5 {
   }
 }
 
-#skin_container {
-}
-
 .skin-thief {
   display: none;
 }
@@ -132,11 +131,7 @@ h5 {
   display: flex;
   border-radius: 8px;
   box-shadow: 130px 100px 140px -90px rgba(var(--skin-highlight), 0.2);
-  // background: linear-gradient(
-  //   150deg,
-  //   rgb(22, 22, 23) 60%,
-  //   rgba(var(--skin-highlight), 0.3) 100%
-  // );
+
   background: radial-gradient(
     ellipse at 140% 100%,
     rgba(var(--skin-highlight), 0.1) 0%,
@@ -466,13 +461,6 @@ section {
   }
 }
 
-.mc-rank {
-  // font-family: "Minecraft", sans-serif;
-  > * {
-    // font-family: "Minecraft", sans-serif;
-  }
-}
-
 .BLACK {
   color: #000000;
 }
@@ -590,5 +578,96 @@ section {
         font-weight: 500;
       }
     }
+  }
+}
+.section-content {
+  min-height: 90vh;
+}
+
+.site-footer {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--background-footer);
+  display: flex;
+  flex-direction: column;
+
+  > .row {
+    width: 100%;
+    display: flex;
+
+    &.section {
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-between;
+    }
+
+    &.padded {
+      padding: 1rem 0;
+    }
+
+    &.center {
+      justify-content: center;
+      gap: 1rem;
+    }
+    &.cc {
+      justify-content: center;
+      background-color: var(--background-secondary);
+      font-size: 14px;
+      color: var(--text-300);
+    }
+  }
+}
+
+.footer-section {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  > .footer-title {
+    font-weight: 600;
+    color: var(--text-300);
+    text-transform: uppercase;
+    transition: all 100ms ease-in-out;
+    font-size: 14px;
+  }
+  > .footer-item {
+    font-size: 14px;
+    color: var(--text-300);
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 0.1rem;
+    &:nth-child(1) {
+      padding-top: 1rem;
+    }
+
+    &:hover {
+      color: var(--text-200);
+    }
+  }
+}
+
+.boxed-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid var(--border-color-light);
+  height: 38px;
+  width: 38px;
+  background-color: transparent;
+
+  transition: all 100ms ease-in-out;
+  color: var(--text-200);
+
+  > * {
+    height: 18px;
+    width: 18px;
+  }
+
+  &:hover {
+    background-color: var(--background-card-btn);
+    cursor: pointer;
   }
 }
