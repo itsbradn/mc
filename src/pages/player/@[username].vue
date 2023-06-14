@@ -53,23 +53,6 @@
           <div class="card" v-if="hypixel">
             <div class="stat center">
               <div class="content">
-                <h1>Rank</h1>
-                <h2>
-                  <Rank
-                    :username="mojang.username"
-                    :rank="hypixel.newPackageRank"
-                    :monthly="hypixel.monthlyPackageRank"
-                    :plusColor="hypixel.rankPlusColor"
-                    :monthlyColor="hypixel.monthlyRankColor"
-                    :otherRank="hypixel.rank"
-                    :otherPrefix="hypixel.prefix"
-                  />
-                </h2>
-              </div>
-            </div>
-            <div class="divider margin-card"></div>
-            <div class="stat center">
-              <div class="content">
                 <h1>First Login</h1>
                 <h2><DateFormat :date="hypixel.firstLogin" /></h2>
               </div>
