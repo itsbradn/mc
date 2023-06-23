@@ -1,6 +1,6 @@
 <template>
-  <div class="accordion">
-    <div class="accordion__header">
+  <div class="accordion" style="height: 65px">
+    <div class="accordion__header" @click="clicked">
       <div class="header__title">{{ props.title }}</div>
     </div>
     <div class="accordion__content">
@@ -14,28 +14,31 @@ const props = defineProps({
   title: String,
 });
 
-onMounted(() => {
-  document.querySelectorAll(".accordion").forEach((e) => {
-    const header = e.children[0];
-    const content = e.children[1];
+const clicked = (e) => {
+  const header = e.target.classList.contains("header__title")
+    ? e.target.parentElement
+    : e.target;
+  const content = header.nextSibling;
+  const accordion = header.parentElement;
+  const closedHeight = 65;
+  let openHeight = content.getBoundingClientRect().height + closedHeight;
 
-    const closedHeight = 65;
-    let openHeight = content.getBoundingClientRect().height + closedHeight;
-    e.style.height = `${closedHeight}px`;
-
-    header.addEventListener("click", (v) => {
-
-      if (!e.classList.contains("open")) {
-        openHeight = content.getBoundingClientRect().height + closedHeight;
-        e.classList.add("open");
-        e.style.height = `${openHeight}px`;
-        content.style.opacity = `100%`;
-        return;
-      }
-      e.classList.remove("open");
-      e.style.height = `${closedHeight}px`;
-      content.style.opacity = `0%`;
+  if (!accordion.classList.contains("open")) {
+    document.querySelectorAll(".accordion").forEach((v) => {
+      const vContent = v.children[1];
+      v.classList.remove("open");
+      v.style.height = `${closedHeight}px`;
+      vContent.style.opacity = `0%`;
     });
-  });
-});
+    openHeight = content.getBoundingClientRect().height + closedHeight;
+    accordion.classList.add("open");
+    accordion.style.height = `${openHeight}px`;
+    content.style.opacity = `100%`;
+
+    return;
+  }
+  accordion.classList.remove("open");
+  accordion.style.height = `${closedHeight}px`;
+  content.style.opacity = `0%`;
+};
 </script>

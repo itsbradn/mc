@@ -294,7 +294,8 @@ section {
   }
 }
 
-.accordion-subtitle {
+.accordion-subtitle,
+.card-subtitle {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -307,6 +308,10 @@ section {
 
   width: 100%;
   text-align: center;
+}
+
+.card > .card-subtitle {
+  padding-top: 2rem;
 }
 
 .stat {
@@ -346,6 +351,10 @@ section {
 
   &.inline {
     margin: 0;
+  }
+
+  &.margin {
+    margin: 0.75rem 1rem;
   }
 
   &.mini {
@@ -394,9 +403,16 @@ section {
     height: 100%;
     flex: 1;
     background-color: var(--background-card-btn);
+    text-decoration: none;
     color: var(--text-100);
     font-weight: 600;
     text-transform: uppercase;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
@@ -420,6 +436,28 @@ section {
   padding-bottom: 0;
   > * {
     flex: 1;
+    height: 100%;
+  }
+
+  &.pad-bottom {
+    padding-bottom: 1rem;
+  }
+
+  &.big-gap {
+    padding-top: 3rem;
+  }
+  &.space {
+    gap: 1rem;
+  }
+  &.nomarg {
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  &.two-fix {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

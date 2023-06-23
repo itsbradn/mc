@@ -2,98 +2,42 @@
   <section v-if="mojang">
     <div class="section-content">
       <div class="player-pages">
-        <button class="page-btn active">Overview</button>
-        <button class="page-btn" v-if="hypixel">Bedwars</button>
-        <button class="page-btn" v-if="hypixel">Skyblock</button>
-        <button class="page-btn" v-if="hypixel">Skywars</button>
-        <button class="page-btn" v-if="hypixel">Duels</button>
+        <NuxtLink
+          class="page-btn"
+          :to="'/player/@' + route.params.username"
+          exactActiveClass="active"
+          >Overview</NuxtLink
+        >
+        <NuxtLink
+          class="page-btn"
+          :to="'/player/@' + route.params.username + '/bedwars'"
+          activeClass="active"
+          v-if="hypixel"
+          >Bedwars</NuxtLink
+        >
+        <NuxtLink
+          class="page-btn"
+          :to="'/player/@' + route.params.username + '/skyblock'"
+          activeClass="active"
+          v-if="hypixel"
+          >Skyblock</NuxtLink
+        >
+        <NuxtLink
+          class="page-btn"
+          :to="'/player/@' + route.params.username + '/skywars'"
+          activeClass="active"
+          v-if="hypixel"
+          >Skywars</NuxtLink
+        >
+        <NuxtLink
+          class="page-btn"
+          :to="'/player/@' + route.params.username + '/duels'"
+          activeClass="active"
+          v-if="hypixel"
+          >Duels</NuxtLink
+        >
       </div>
-      <div class="player-content">
-        <div class="content-main">
-          <div class="player-header">
-            <div class="details">
-              <h1 v-if="hypixel">
-                <Rank
-                  :username="mojang.username"
-                  :rank="hypixel.newPackageRank"
-                  :monthly="hypixel.monthlyPackageRank"
-                  :plusColor="hypixel.rankPlusColor"
-                  :monthlyColor="hypixel.monthlyRankColor"
-                  :otherRank="hypixel.rank"
-                  :otherPrefix="hypixel.prefix"
-                />
-              </h1>
-              <h1 v-else>{{ mojang.username }}</h1>
-              <h2>500 views / month</h2>
-              <div class="divider" v-if="hypixel"></div>
-              <div class="overview-stats" v-if="hypixel">
-                <div class="header-stat">
-                  <h1>Level</h1>
-                  <h2><Number v-bind:number="hypixel.level" /></h2>
-                </div>
-                <div class="header-stat">
-                  <h1>Achievement Points</h1>
-                  <h2><Number v-bind:number="hypixel.achievementPoints" /></h2>
-                </div>
-                <div class="header-stat">
-                  <h1>Karma</h1>
-                  <h2><Number v-bind:number="hypixel.karma" :big="true" /></h2>
-                </div>
-              </div>
-            </div>
-            <div class="skin">
-              <canvas id="skin_container"></canvas>
-            </div>
-          </div>
-          <Accordion id="tnt-games" title="TNT Games" v-if="hypixel">
-            <StatsTNTGames :stats="hypixel" />
-          </Accordion>
-        </div>
-        <div class="content-sub">
-          <div class="card" v-if="hypixel">
-            <div class="stat center">
-              <div class="content">
-                <h1>First Login</h1>
-                <h2><DateFormat :date="hypixel.firstLogin" /></h2>
-              </div>
-            </div>
-            <div class="stat center" v-if="hypixel.lastLogin">
-              <div class="content">
-                <h1>Last Login</h1>
-                <h2><DateFormatAgo :date="hypixel.lastLogin" /></h2>
-              </div>
-            </div>
-          </div>
-          <div class="card" v-if="hypixel">
-            <div class="stat center">
-              <div class="content">
-                <h1>Reward Streak High Score</h1>
-                <h2><Number :number="hypixel.rewardHighScore" /></h2>
-              </div>
-            </div>
-            <div class="stat center">
-              <div class="content">
-                <h1>Reward Streak</h1>
-                <h2><Number :number="hypixel.rewardStreak" /></h2>
-              </div>
-            </div>
-            <div class="stat center">
-              <div class="content">
-                <h1>Total Daily Rewards</h1>
-                <h2>
-                  <Number :number="hypixel.totalDailyRewards" />/<Number
-                    :number="hypixel.totalRewards"
-                  />
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-        </div>
-      </div>
+      <NuxtPage :hypixel="hypixel" :mojang="mojang" :renderSkin="updateSkin" />
     </div>
   </section>
 </template>
@@ -109,6 +53,8 @@ import { MinecraftPlayerResponse } from "../../types/minecraftPlayer";
 import Number from "~/components/Number.vue";
 
 const route = useRoute();
+
+
 
 const { data: mojang } = await useFetch<MinecraftPlayerResponse>(
   "https://api.bradn.dev/api/v1/minecraft/player/" + route.params.username
@@ -143,7 +89,7 @@ useHead({
   ],
 });
 
-onMounted(() => {
+const updateSkin = () => {
   class StillAnim extends PlayerAnimation {
     animate(player: any) {
       // Multiply by animation's natural speed
@@ -190,6 +136,13 @@ onMounted(() => {
 
   // skinViewer.loadCape("/img/demo-cape.webp", { backEquipment: "elytra" });
   skinViewer.animation = new StillAnim();
+}
+
+onMounted(() => {
+
+  if (!mojang.value) throw new Error("no response");
+
+  // updateSkin();
   Vibrant.from(mojang.value.skin.url)
     .getPalette()
     .then(function (palette: any) {
