@@ -731,6 +731,7 @@ section {
   border-radius: 8px;
   transition: height 150ms ease-in-out;
   border: none;
+  text-decoration: none;
 
   &__header {
     height: 65px;
@@ -815,7 +816,7 @@ section {
   > .display__bars {
     display: flex;
     width: 100%;
-    gap: 16px;
+    gap: 32px;
     > .bar {
       flex: 1;
       width: 100%;
