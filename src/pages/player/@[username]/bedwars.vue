@@ -437,7 +437,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes.solos.bedsBrokenBedsLostRatio
+                      props.hypixel.games.bedwars.modes.solos
+                        .bedsBrokenBedsLostRatio
                     "
                   />
                 </h2>
@@ -451,7 +452,9 @@
               <div class="content">
                 <h1>Wins</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.solos.wins" />
+                  <Number
+                    v-bind:number="props.hypixel.games.bedwars.modes.solos.wins"
+                  />
                 </h2>
               </div>
             </div>
@@ -461,7 +464,11 @@
               <div class="content">
                 <h1>Losses</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.solos.losses" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.losses
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -472,7 +479,9 @@
                 <h1>Win Loss</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.winLossRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.winLossRatio
+                    "
                   />
                 </h2>
               </div>
@@ -484,7 +493,9 @@
                 <h1>Winstreak</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.winstreak"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.winstreak
+                    "
                   />
                 </h2>
               </div>
@@ -500,7 +511,9 @@
                 <h1>Final Kills</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.finalKills"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.finalKills
+                    "
                   />
                 </h2>
               </div>
@@ -512,7 +525,9 @@
                 <h1>Final Deaths</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.finalDeaths"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.finalDeaths
+                    "
                   />
                 </h2>
               </div>
@@ -524,7 +539,9 @@
                 <h1>Final Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.finalKillDeath"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.finalKillDeath
+                    "
                   />
                 </h2>
               </div>
@@ -567,7 +584,11 @@
               <div class="content">
                 <h1>Kills</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.solos.kills" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.kills
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -577,7 +598,11 @@
               <div class="content">
                 <h1>Deaths</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.solos.deaths" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.deaths
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -588,7 +613,9 @@
                 <h1>Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.killDeathRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.killDeathRatio
+                    "
                   />
                 </h2>
               </div>
@@ -602,7 +629,9 @@
                 <h1>Kills/Games Won</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.killWinRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.killWinRatio
+                    "
                   />
                 </h2>
               </div>
@@ -614,7 +643,9 @@
                 <h1>Kills/Games Played</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.solos.killGameRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.solos.killGameRatio
+                    "
                   />
                 </h2>
               </div>
@@ -662,7 +693,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes.doubles.bedsBrokenBedsLostRatio
+                      props.hypixel.games.bedwars.modes.doubles
+                        .bedsBrokenBedsLostRatio
                     "
                   />
                 </h2>
@@ -676,7 +708,11 @@
               <div class="content">
                 <h1>Wins</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.doubles.wins" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.wins
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -686,7 +722,11 @@
               <div class="content">
                 <h1>Losses</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.doubles.losses" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.losses
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -697,7 +737,9 @@
                 <h1>Win Loss</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.winLossRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.winLossRatio
+                    "
                   />
                 </h2>
               </div>
@@ -709,7 +751,9 @@
                 <h1>Winstreak</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.winstreak"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.winstreak
+                    "
                   />
                 </h2>
               </div>
@@ -725,7 +769,9 @@
                 <h1>Final Kills</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.finalKills"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.finalKills
+                    "
                   />
                 </h2>
               </div>
@@ -737,7 +783,9 @@
                 <h1>Final Deaths</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.finalDeaths"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.finalDeaths
+                    "
                   />
                 </h2>
               </div>
@@ -749,7 +797,9 @@
                 <h1>Final Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.finalKillDeath"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.finalKillDeath
+                    "
                   />
                 </h2>
               </div>
@@ -764,7 +814,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes.doubles.finalKillWinRatio
+                      props.hypixel.games.bedwars.modes.doubles
+                        .finalKillWinRatio
                     "
                   />
                 </h2>
@@ -778,7 +829,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes.doubles.finalKillGameRatio
+                      props.hypixel.games.bedwars.modes.doubles
+                        .finalKillGameRatio
                     "
                   />
                 </h2>
@@ -792,7 +844,11 @@
               <div class="content">
                 <h1>Kills</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.doubles.kills" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.kills
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -802,7 +858,11 @@
               <div class="content">
                 <h1>Deaths</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes.doubles.deaths" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.deaths
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -813,7 +873,9 @@
                 <h1>Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.killDeathRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.killDeathRatio
+                    "
                   />
                 </h2>
               </div>
@@ -827,7 +889,9 @@
                 <h1>Kills/Games Won</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.killWinRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.killWinRatio
+                    "
                   />
                 </h2>
               </div>
@@ -839,7 +903,9 @@
                 <h1>Kills/Games Played</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes.doubles.killGameRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes.doubles.killGameRatio
+                    "
                   />
                 </h2>
               </div>
@@ -887,7 +953,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['3v3v3v3'].bedsBrokenBedsLostRatio
+                      props.hypixel.games.bedwars.modes['3v3v3v3']
+                        .bedsBrokenBedsLostRatio
                     "
                   />
                 </h2>
@@ -901,7 +968,11 @@
               <div class="content">
                 <h1>Wins</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].wins" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].wins
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -911,7 +982,11 @@
               <div class="content">
                 <h1>Losses</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].losses" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].losses
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -922,7 +997,9 @@
                 <h1>Win Loss</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].winLossRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].winLossRatio
+                    "
                   />
                 </h2>
               </div>
@@ -934,7 +1011,9 @@
                 <h1>Winstreak</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].winstreak"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].winstreak
+                    "
                   />
                 </h2>
               </div>
@@ -950,7 +1029,9 @@
                 <h1>Final Kills</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].finalKills"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].finalKills
+                    "
                   />
                 </h2>
               </div>
@@ -962,7 +1043,9 @@
                 <h1>Final Deaths</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].finalDeaths"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].finalDeaths
+                    "
                   />
                 </h2>
               </div>
@@ -974,7 +1057,10 @@
                 <h1>Final Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].finalKillDeath"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3']
+                        .finalKillDeath
+                    "
                   />
                 </h2>
               </div>
@@ -989,7 +1075,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['3v3v3v3'].finalKillWinRatio
+                      props.hypixel.games.bedwars.modes['3v3v3v3']
+                        .finalKillWinRatio
                     "
                   />
                 </h2>
@@ -1003,7 +1090,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['3v3v3v3'].finalKillGameRatio
+                      props.hypixel.games.bedwars.modes['3v3v3v3']
+                        .finalKillGameRatio
                     "
                   />
                 </h2>
@@ -1017,7 +1105,11 @@
               <div class="content">
                 <h1>Kills</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].kills" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].kills
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1027,7 +1119,11 @@
               <div class="content">
                 <h1>Deaths</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].deaths" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].deaths
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1038,7 +1134,10 @@
                 <h1>Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].killDeathRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3']
+                        .killDeathRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1052,7 +1151,9 @@
                 <h1>Kills/Games Won</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].killWinRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].killWinRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1064,7 +1165,9 @@
                 <h1>Kills/Games Played</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['3v3v3v3'].killGameRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['3v3v3v3'].killGameRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1112,7 +1215,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['4v4v4v4'].bedsBrokenBedsLostRatio
+                      props.hypixel.games.bedwars.modes['4v4v4v4']
+                        .bedsBrokenBedsLostRatio
                     "
                   />
                 </h2>
@@ -1126,7 +1230,11 @@
               <div class="content">
                 <h1>Wins</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].wins" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].wins
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1136,7 +1244,11 @@
               <div class="content">
                 <h1>Losses</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].losses" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].losses
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1147,7 +1259,9 @@
                 <h1>Win Loss</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].winLossRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].winLossRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1159,7 +1273,9 @@
                 <h1>Winstreak</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].winstreak"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].winstreak
+                    "
                   />
                 </h2>
               </div>
@@ -1175,7 +1291,9 @@
                 <h1>Final Kills</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].finalKills"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].finalKills
+                    "
                   />
                 </h2>
               </div>
@@ -1187,7 +1305,9 @@
                 <h1>Final Deaths</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].finalDeaths"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].finalDeaths
+                    "
                   />
                 </h2>
               </div>
@@ -1199,7 +1319,10 @@
                 <h1>Final Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].finalKillDeath"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4']
+                        .finalKillDeath
+                    "
                   />
                 </h2>
               </div>
@@ -1214,7 +1337,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['4v4v4v4'].finalKillWinRatio
+                      props.hypixel.games.bedwars.modes['4v4v4v4']
+                        .finalKillWinRatio
                     "
                   />
                 </h2>
@@ -1228,7 +1352,8 @@
                 <h2>
                   <Number
                     v-bind:number="
-                      props.hypixel.games.bedwars.modes['4v4v4v4'].finalKillGameRatio
+                      props.hypixel.games.bedwars.modes['4v4v4v4']
+                        .finalKillGameRatio
                     "
                   />
                 </h2>
@@ -1242,7 +1367,11 @@
               <div class="content">
                 <h1>Kills</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].kills" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].kills
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1252,7 +1381,11 @@
               <div class="content">
                 <h1>Deaths</h1>
                 <h2>
-                  <Number v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].deaths" />
+                  <Number
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].deaths
+                    "
+                  />
                 </h2>
               </div>
             </div>
@@ -1263,7 +1396,10 @@
                 <h1>Kill/Death</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].killDeathRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4']
+                        .killDeathRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1277,7 +1413,9 @@
                 <h1>Kills/Games Won</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].killWinRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].killWinRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1289,7 +1427,9 @@
                 <h1>Kills/Games Played</h1>
                 <h2>
                   <Number
-                    v-bind:number="props.hypixel.games.bedwars.modes['4v4v4v4'].killGameRatio"
+                    v-bind:number="
+                      props.hypixel.games.bedwars.modes['4v4v4v4'].killGameRatio
+                    "
                   />
                 </h2>
               </div>
@@ -1399,6 +1539,20 @@ definePageMeta({
 });
 
 const props = defineProps(["mojang", "hypixel", "renderSkin"]);
+useSeoMeta({
+  title: props.mojang
+    ? props.mojang.username + " - Bedwars | bradn stats"
+    : "bradn stats",
+  ogTitle: props.mojang
+    ? props.mojang.username + " - Bedwars | bradn stats"
+    : "bradn stats",
+  ogImage: `https://mc-heads.net/head/${
+    props.mojang ? props.mojang.uuid : "MHF_Steve"
+  }`,
+  themeColor: "#FC5C7D",
+  description: `View accurate and frequently updated Hypixel Bedwars and other modes stats.`,
+  ogDescription: `View accurate and frequently updated Hypixel Bedwars and other modes stats.`
+});
 
 onMounted(() => {
   props.renderSkin();
