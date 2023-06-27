@@ -511,7 +511,7 @@ section {
 
   &:hover > .accordion__header > .header__icon {
     color: var(--text-200);
-  } 
+  }
 }
 
 .BLACK {
@@ -760,6 +760,104 @@ section {
         transform: rotate(-90deg) translateY(5px);
         color: var(--text-200);
       }
+    }
+  }
+}
+
+.wizards-class-display {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  > .display__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    > .header__title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-100);
+    }
+
+    > .prestiged {
+      background-color: #fdb833;
+      padding: 0px 6px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      height: fit-content;
+      border-radius: 8px;
+      display: block;
+    }
+  }
+
+  > .display__stats {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    > .display-stat {
+      > .stat__title {
+        font-weight: 400;
+        color: var(--text-300);
+        font-size: 14px;
+      }
+      > .stat__value {
+        font-weight: 600;
+        color: var(--text-100);
+        font-size: 16px;
+      }
+    }
+  }
+
+  > .display__bars {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    > .bar {
+      flex: 1;
+      width: 100%;
+      > .bar__title {
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--text-100);
+      }
+      > .bar-wrapper {
+        margin-top: 2px;
+        width: 100%;
+        background-color: var(--background-card-btn);
+        height: 8px;
+        border-radius: 99px;
+        > .bar {
+          width: 0%;
+          background-color: #17b1e1;
+          height: 8px;
+          border-radius: 99px;
+
+          &.mana {
+            background-color: #17b1e1;
+          }
+          &.power {
+            background-color: #ff3f3f;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wizards-class-display {
+    max-width: 350px;
+    > .display__stats {
+      > * {
+        width: 33.333%;
+      }
+    }
+    > .display__bars {
+      flex-direction: column;
     }
   }
 }
