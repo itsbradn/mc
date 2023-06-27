@@ -40,7 +40,15 @@
           <canvas id="skin_container"></canvas>
         </div>
       </div>
-      <Accordion id="tnt-games" title="TNT Games" v-if="props.hypixel">
+      <NuxtLink
+        :to="'/player/@' + props.mojang.username + '/bedwars'"
+        class="fake-accordion"
+      >
+        <div class="fake-accordion__header">
+          <div class="header__title">Bedwars</div>
+        </div>
+      </NuxtLink>
+      <Accordion id="tnt-games" title="TNT Games" v-if="props.mojang">
         <StatsTNTGames :stats="props.hypixel" />
       </Accordion>
     </div>
