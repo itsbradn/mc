@@ -41,14 +41,18 @@
         </div>
       </div>
       <NuxtLink
+        v-if="props.mojang"
         :to="'/player/@' + props.mojang.username + '/bedwars'"
         class="fake-accordion"
       >
         <div class="fake-accordion__header">
           <div class="header__title">Bedwars</div>
+          <div class="header__icon">
+            <Icon name="material-symbols:keyboard-arrow-down-rounded" />
+          </div>
         </div>
       </NuxtLink>
-      <Accordion id="tnt-games" title="TNT Games" v-if="props.mojang">
+      <Accordion id="tnt-games" title="TNT Games" v-if="props.hypixel">
         <StatsTNTGames :stats="props.hypixel" />
       </Accordion>
     </div>

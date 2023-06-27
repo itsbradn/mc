@@ -2,6 +2,9 @@
   <div class="accordion" style="height: 65px">
     <div class="accordion__header" @click="clicked">
       <div class="header__title">{{ props.title }}</div>
+      <div class="header__icon">
+        <Icon name="material-symbols:keyboard-arrow-down-rounded" />
+      </div>
     </div>
     <div class="accordion__content">
       <slot />

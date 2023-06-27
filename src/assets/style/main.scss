@@ -481,6 +481,13 @@ section {
     > .header__title {
       font-weight: 600;
     }
+    > .header__icon {
+      margin-right: 1rem;
+      font-size: 24px;
+      color: var(--text-300);
+      transform: rotate(0deg);
+      transition: transform 90ms ease-in-out, color 110ms ease-in-out;
+    }
   }
 
   &__content {
@@ -497,6 +504,14 @@ section {
     transform: translateY(0px);
     pointer-events: all;
   }
+
+  &.open > .accordion__header > .header__icon {
+    transform: rotate(180deg);
+  }
+
+  &:hover > .accordion__header > .header__icon {
+    color: var(--text-200);
+  } 
 }
 
 .BLACK {
@@ -732,6 +747,19 @@ section {
 
     > .header__title {
       font-weight: 600;
+    }
+    > .header__icon {
+      margin-right: 1rem;
+      font-size: 24px;
+      color: var(--text-300);
+      transform: rotate(-90deg) translateY(0px);
+      transition: transform 90ms ease-in-out, color 110ms ease-in-out;
+    }
+    &:hover {
+      > .header__icon {
+        transform: rotate(-90deg) translateY(5px);
+        color: var(--text-200);
+      }
     }
   }
 }
