@@ -15,7 +15,7 @@
             />
           </h1>
           <h1 v-else>{{ props.mojang.username }}</h1>
-          <h2>500 views / month</h2>
+          <h2>{{ props.mojang.views ?? 0 }} views / month</h2>
           <div class="divider" v-if="props.hypixel"></div>
           <div class="overview-stats" v-if="props.hypixel">
             <div class="header-stat">
