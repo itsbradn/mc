@@ -141,6 +141,8 @@ useSeoMeta({
   ogTitle: "bradn stats | Minecraft Statistics",
   ogImage: `/icon.png`,
   themeColor: "#FC5C7D",
+  description: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
+  ogDescription: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
 });
 
 const updateSkin = (data, id, right) => {
