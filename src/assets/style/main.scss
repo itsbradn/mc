@@ -849,6 +849,209 @@ section {
   }
 }
 
+.landing-page {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  > h1 {
+    font-weight: 700;
+    font-size: 42px;
+    max-width: 575px;
+    text-align: center;
+  }
+  > p {
+    margin-bottom: 26px;
+    max-width: 525px;
+    font-weight: 500;
+    color: var(--text-300);
+    font-size: 20px;
+    text-align: center;
+  }
+  > .search {
+    margin-bottom: 32px;
+
+    > button {
+      height: 42px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+}
+.landing-grid {
+  width: 1000px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 424px;
+  > .row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    > .box {
+      flex-basis: 25%;
+      height: 200px;
+      background-color: var(--background-card);
+      border-radius: 8px;
+      background: radial-gradient(
+        ellipse at 140% 100%,
+        rgba(red, 0.1) 0%,
+        rgba(red, 0.1) 0%,
+        rgba(red, 0) 75%
+      );
+      background-color: var(--background-card);
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      > canvas {
+        position: absolute;
+        transform: scale(0.5) translateY(-33%) translateX(-55%);
+      }
+      > .box__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 20px;
+        > .header__info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          > h1 {
+            font-size: 12px;
+
+            color: var(--text-300);
+            font-weight: 400;
+          }
+          > h2 {
+            font-size: 18px;
+            color: var(--text-100);
+            font-weight: 600;
+          }
+        }
+      }
+
+      > .box__button {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+    }
+    > .box-double {
+      flex-basis: calc(50% + 24px);
+      height: 200px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      background: radial-gradient(
+        ellipse at 140% 100%,
+        rgba(blue, 0.1) 0%,
+        rgba(blue, 0.1) 30%,
+        rgba(blue, 0) 65%
+      );
+      background-color: var(--background-card);
+
+      > canvas {
+        position: absolute;
+        transform: scale(0.5) translateY(-25%) translateX(280%);
+      }
+
+      > .box__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        > .header__info {
+          > h1 {
+            font-size: 14px;
+            color: var(--text-300);
+            font-weight: 400;
+          }
+          > h2 {
+            font-size: 18px;
+            color: var(--text-100);
+            font-weight: 600;
+          }
+        }
+        > .header__stat {
+          font-size: 16px;
+          color: var(--text-300);
+          font-weight: 400;
+        }
+      }
+
+      > .box__button {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+.search {
+  display: flex;
+  > .bar {
+    width: 450px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid #252831;
+
+    > svg {
+      margin-left: 1rem;
+      margin-right: 0.35rem;
+      height: 18px;
+      width: 18px;
+      color: var(--text-500);
+    }
+    > input {
+      font-size: 14px;
+      background-color: transparent;
+      color: var(--text-200) !important;
+      border: none;
+      width: 100%;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  > button {
+    margin-left: 1rem;
+    padding: 6px 28px;
+    border-radius: 999px;
+    border: none;
+    background-color: var(--background-card);
+    color: var(--text-100);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.outline-btn {
+  outline: none;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: var(--text-100);
+  transition: all 100ms ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--background-card-btn);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .wizards-class-display {
     max-width: 350px;
