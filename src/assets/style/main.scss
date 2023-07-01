@@ -58,6 +58,12 @@ h5 {
   padding-left: 2rem;
   padding-right: 2rem;
 
+  > .left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
   &__logo {
     font-size: 28px;
     margin: 0;
@@ -994,6 +1000,10 @@ section {
 
 .search {
   display: flex;
+
+  &.mini > .bar {
+    height: 32px;
+  }
   > .bar {
     width: 450px;
     height: 42px;

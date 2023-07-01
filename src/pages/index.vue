@@ -134,6 +134,7 @@ const searchName = ref("");
 
 const search = () => {
   useRouter().push(`/player/@` + searchName.value);
+  searchName.value = "";
 };
 
 useSeoMeta({
