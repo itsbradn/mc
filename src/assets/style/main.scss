@@ -903,9 +903,9 @@ section {
       border-radius: 8px;
       background: radial-gradient(
         ellipse at 140% 100%,
-        rgba(red, 0.1) 0%,
-        rgba(red, 0.1) 0%,
-        rgba(red, 0) 75%
+        rgba(var(--skin-highlight), 0.1) 0%,
+        rgba(var(--skin-highlight), 0.1) 10%,
+        rgba(var(--skin-highlight), 0) 75%
       );
       background-color: var(--background-card);
       display: flex;
@@ -956,9 +956,9 @@ section {
 
       background: radial-gradient(
         ellipse at 140% 100%,
-        rgba(blue, 0.1) 0%,
-        rgba(blue, 0.1) 30%,
-        rgba(blue, 0) 65%
+        rgba(var(--skin-highlight), 0.1) 0%,
+        rgba(var(--skin-highlight), 0.1) 30%,
+        rgba(var(--skin-highlight), 0) 65%
       );
       background-color: var(--background-card);
 
