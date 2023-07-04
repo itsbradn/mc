@@ -62,6 +62,10 @@ h5 {
     display: flex;
     gap: 16px;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -649,6 +653,7 @@ section {
   background-color: var(--background-footer);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   > .row {
     width: 100%;
@@ -660,6 +665,11 @@ section {
       margin-left: auto;
       margin-right: auto;
       justify-content: space-between;
+      @media only screen and (max-width: 600px) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        max-width: 92vw;
+      }
     }
 
     &.padded {
@@ -675,6 +685,9 @@ section {
       background-color: var(--background-secondary);
       font-size: 14px;
       color: var(--text-300);
+      @media only screen and (max-width: 600px) {
+        font-size: 11px;
+      }
     }
   }
 }
@@ -690,11 +703,17 @@ section {
     text-transform: uppercase;
     transition: all 100ms ease-in-out;
     font-size: 14px;
+    @media only screen and (max-width: 600px) {
+      font-size: 10px;
+    }
   }
   > .footer-item {
     font-size: 14px;
     color: var(--text-300);
     text-decoration: none;
+    @media only screen and (max-width: 600px) {
+      font-size: 12px;
+    }
     cursor: pointer;
     padding-top: 0.1rem;
     &:nth-child(1) {
@@ -856,16 +875,21 @@ section {
 }
 
 .landing-page {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   > h1 {
+    margin-top: 2rem;
     font-weight: 700;
     font-size: 42px;
     max-width: 575px;
     text-align: center;
+    @media only screen and (max-width: 600px) {
+      font-size: 28px;
+      max-width: 80%;
+    }
   }
   > p {
     margin-bottom: 26px;
@@ -874,6 +898,10 @@ section {
     color: var(--text-300);
     font-size: 20px;
     text-align: center;
+    @media only screen and (max-width: 600px) {
+      font-size: 14px;
+      max-width: 75%;
+    }
   }
   > .search {
     margin-bottom: 32px;
@@ -892,10 +920,19 @@ section {
   flex-direction: column;
   gap: 24px;
   height: 424px;
+  @media only screen and (max-width: 600px) {
+    width: 80vw;
+    flex-direction: column;
+    height: fit-content;
+  }
   > .row {
     display: flex;
     flex-direction: row;
     gap: 24px;
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      height: fit-content;
+    }
     > .box {
       flex-basis: 25%;
       height: 200px;
@@ -911,10 +948,16 @@ section {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+      @media only screen and (max-width: 600px) {
+        flex-basis: 100%;
+      }
 
       > canvas {
         position: absolute;
         transform: scale(0.5) translateY(-33%) translateX(-55%);
+        @media only screen and (max-width: 600px) {
+          transform: scale(0.5) translateY(-50%) translateX(-55%);
+        }
       }
       > .box__header {
         display: flex;
@@ -962,9 +1005,30 @@ section {
       );
       background-color: var(--background-card);
 
+      @media only screen and (max-width: 600px) {
+        flex-basis: 100%;
+        height: 200px;
+        background-color: var(--background-card);
+        border-radius: 8px;
+        background: radial-gradient(
+          ellipse at 140% 100%,
+          rgba(var(--skin-highlight), 0.1) 0%,
+          rgba(var(--skin-highlight), 0.1) 10%,
+          rgba(var(--skin-highlight), 0) 75%
+        );
+        background-color: var(--background-card);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+
       > canvas {
         position: absolute;
         transform: scale(0.5) translateY(-25%) translateX(280%);
+        @media only screen and (max-width: 600px) {
+          position: absolute;
+          transform: scale(0.5) translateY(-50%) translateX(-55%) !important;
+        }
       }
 
       > .box__header {
@@ -972,7 +1036,15 @@ section {
         flex-direction: row;
         justify-content: space-between;
         padding: 20px;
+        @media only screen and (max-width: 600px) {
+          justify-content: flex-end;
+        }
         > .header__info {
+          @media only screen and (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+          }
           > h1 {
             font-size: 14px;
             color: var(--text-300);
@@ -988,11 +1060,19 @@ section {
           font-size: 16px;
           color: var(--text-300);
           font-weight: 400;
+          @media only screen and (max-width: 600px) {
+            display: none;
+          }
         }
       }
 
       > .box__button {
         padding: 20px;
+        @media only screen and (max-width: 600px) {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+        }
       }
     }
   }
@@ -1000,6 +1080,10 @@ section {
 
 .search {
   display: flex;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    width: 80%;
+  }
 
   &.mini > .bar {
     height: 32px;
@@ -1011,6 +1095,9 @@ section {
     align-items: center;
     border-radius: 999px;
     border: 1px solid #252831;
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
 
     > svg {
       margin-left: 1rem;
@@ -1043,6 +1130,10 @@ section {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    @media only screen and (max-width: 600px) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
   }
 }
 
