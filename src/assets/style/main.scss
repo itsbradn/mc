@@ -167,7 +167,15 @@ h5 {
       width: 75%;
       justify-content: space-between;
 
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
       > .header-stat {
+        @media only screen and (max-width: 600px) {
+          min-width: 33%;
+        }
         > h1 {
           font-weight: 400;
           color: var(--text-300);
@@ -183,6 +191,10 @@ h5 {
   }
   > .skin {
     height: 275px;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
     > canvas {
       transform: translateY(-50px);
     }
@@ -299,6 +311,12 @@ section {
       }
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    > .stat {
+      width: auto;
+    }
+  }
   &.transparent {
     background-color: transparent;
   }
@@ -336,10 +354,12 @@ section {
       color: var(--text-300);
       font-size: 15px;
       user-select: none;
+      text-align: center;
     }
     > h2 {
       font-weight: 600;
       font-size: 18px;
+      text-align: center;
     }
   }
 
@@ -384,6 +404,13 @@ section {
   display: flex;
   width: 100%;
   gap: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: auto;
+  }
   > .content-main {
     flex: 1;
     display: flex;
@@ -395,6 +422,10 @@ section {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    @media only screen and (max-width: 600px) {
+      flex: 1;
+      width: auto;
+    }
   }
 }
 .player-pages {
@@ -406,6 +437,14 @@ section {
   padding: 0.5rem 1rem;
   display: flex;
   gap: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    height: fit-content;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
+  }
 
   > .page-btn {
     border: none;
@@ -426,6 +465,9 @@ section {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
+    @media only screen and (max-width: 600px) {
+      min-height: 40px;
+    }
 
     &:hover {
       background-color: var(--background-card-btn-hvr);
