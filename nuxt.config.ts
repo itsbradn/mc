@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["nuxt-font-loader", 'nuxt-icon'],
+  modules: ["nuxt-font-loader", "nuxt-icon"],
   css: ["@/assets/style/main.scss"],
   srcDir: "src/",
   fontLoader: {
