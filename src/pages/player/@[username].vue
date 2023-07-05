@@ -75,6 +75,7 @@ useSeoMeta({
     mojang.value ? mojang.value.uuid : "MHF_Steve"
   }`,
   themeColor: "#FC5C7D",
+  twitterImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/' + mojang.value.username : ''
 });
 useHead({
   link: [
