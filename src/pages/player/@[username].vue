@@ -71,9 +71,9 @@ useSeoMeta({
   ogTitle: mojang.value
     ? mojang.value.username + " | bradn stats"
     : "bradn stats",
-  ogImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/' + mojang.value.username : '',
+  ogImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + mojang.value.username : '',
   themeColor: "#FC5C7D",
-  twitterImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/' + mojang.value.username : '',
+  twitterImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + mojang.value.username : '',
   twitterCard: 'summary_large_image'
 });
 useHead({

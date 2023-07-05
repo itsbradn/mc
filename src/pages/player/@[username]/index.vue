@@ -112,11 +112,11 @@ useSeoMeta({
   ogTitle: props.mojang
     ? props.mojang.username + " | bradn stats"
     : "bradn stats",
-  ogImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/' + props.mojang.username : '',
+  ogImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + props.mojang.username : '',
   themeColor: "#FC5C7D",
   description: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
   ogDescription: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
-  twitterImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/' + props.mojang.username : '',
+  twitterImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + props.mojang.username : '',
   twitterCard: 'summary_large_image'
 });
 
