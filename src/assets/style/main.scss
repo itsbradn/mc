@@ -354,12 +354,16 @@ section {
       color: var(--text-300);
       font-size: 15px;
       user-select: none;
-      text-align: center;
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+      }
     }
     > h2 {
       font-weight: 600;
       font-size: 18px;
-      text-align: center;
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+      }
     }
   }
 
