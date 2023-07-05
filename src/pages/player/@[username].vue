@@ -71,9 +71,7 @@ useSeoMeta({
   ogTitle: mojang.value
     ? mojang.value.username + " | bradn stats"
     : "bradn stats",
-  ogImage: `https://mc-heads.net/head/${
-    mojang.value ? mojang.value.uuid : "MHF_Steve"
-  }`,
+  ogImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/' + mojang.value.username : '',
   themeColor: "#FC5C7D",
   twitterImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/' + mojang.value.username : '',
   twitterCard: 'summary_large_image'
