@@ -1555,6 +1555,7 @@ useSeoMeta({
   twitterImage: props.mojang
     ? "https://api.bradn.dev/api/v1/minecraft/" + props.mojang.username
     : "",
+  twitterCard: 'summary_large_image'
 });
 
 onMounted(() => {
