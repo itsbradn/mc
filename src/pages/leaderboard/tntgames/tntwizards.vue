@@ -6,8 +6,8 @@
         <div class="place">#</div>
         <div class="username">Username</div>
         <div class="wins">Wins</div>
-        <div class="KD">KD</div>
-        <div class="KDA">KDA</div>
+        <div class="KD">Kills</div>
+        <div class="KDA">Points Captured</div>
       </div>
       <div
         v-for="(item, index) in lbData"
@@ -36,12 +36,12 @@
           <Number :number="item.wins" />
         </div>
         <div class="KD">
-          <h1 class="mobile-item-title">KD</h1>
-          <Number :number="item.killDeathRatio" />
+          <h1 class="mobile-item-title">Kills</h1>
+          <Number :number="item.kills" />
         </div>
         <div class="KDA">
-          <h1 class="mobile-item-title">KDA</h1>
-          <Number :number="item.killDeathAssistRatio" />
+          <h1 class="mobile-item-title">Points Captured</h1>
+          <Number :number="item.pointsCaptured" />
         </div>
       </div>
     </div>
@@ -90,6 +90,8 @@ const lbData = ref(
     wins: number;
     killDeathRatio: number;
     killDeathAssistRatio: number;
+    kills: number;
+    pointsCaptured: number;
     newPackageRank: string;
     monthlyPackageRank: string;
     rankPlusColor: string;
@@ -121,6 +123,8 @@ const fetchLbData = async () => {
     let final = [] as {
       username: string;
       wins: number;
+      kills: number;
+      pointsCaptured: number;
       killDeathRatio: number;
       killDeathAssistRatio: number;
       newPackageRank: string;
@@ -135,6 +139,8 @@ const fetchLbData = async () => {
       final.push({
         username: data.username,
         wins: data.wins,
+        kills: data.kills,
+        pointsCaptured: data.pointsCaptured,
         killDeathRatio: data.killDeathRatio,
         killDeathAssistRatio: data.killDeathAssistRatio,
         ...data.rankData,
