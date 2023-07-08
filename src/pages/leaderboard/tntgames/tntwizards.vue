@@ -2,63 +2,45 @@
   <div class="leaderboard">
     <h1 class="leaderboard-header">TNT Wizards Wins</h1>
     <div class="leaderboard-content" v-if="loaded">
-      <div class="leaderboard-col place">
-        <div class="leaderboard-title">#</div>
-        <div
-          v-for="(item, index) in lbData"
-          v-bind:key="item.wins + '-place'"
-          class="leaderboard-item"
-        >
+      <div class="leaderboard-item title">
+        <div class="place">#</div>
+        <div class="username">Username</div>
+        <div class="wins">Wins</div>
+        <div class="KD">KD</div>
+        <div class="KDA">KDA</div>
+      </div>
+      <div
+        v-for="(item, index) in lbData"
+        v-bind:key="item.wins + '-place'"
+        class="leaderboard-item"
+      >
+        <div class="place">
+          <span class="mobile-item-title">#</span>
           {{ index + (page - 1) * 25 + 1 }}
         </div>
-      </div>
-      <div class="leaderboard-col username">
-        <div class="leaderboard-title">Username</div>
-        <NuxtLink
-          v-for="(item, index) in lbData"
-          v-bind:key="item.wins + '-username'"
-          class="leaderboard-item"
-          :to="`/player/@${item.username}`"
-          
-        >
-          <Rank
-            v-bind:username="item.username"
-            v-bind:rank="item.newPackageRank"
-            :monthly="item.monthlyPackageRank"
-            :plusColor="item.rankPlusColor"
-            :monthlyColor="item.monthlyRankColor"
-            :otherRank="item.rank"
-            :otherPrefix="item.prefix"
-          />
-        </NuxtLink>
-      </div>
-      <div class="leaderboard-col wins">
-        <div class="leaderboard-title">Wins</div>
-        <div
-          v-for="(item, index) in lbData"
-          v-bind:key="item.wins + '-wins'"
-          class="leaderboard-item"
-        >
+        <div class="username">
+          <NuxtLink :to="`/player/@${item.username}`">
+            <Rank
+              v-bind:username="item.username"
+              v-bind:rank="item.newPackageRank"
+              :monthly="item.monthlyPackageRank"
+              :plusColor="item.rankPlusColor"
+              :monthlyColor="item.monthlyRankColor"
+              :otherRank="item.rank"
+              :otherPrefix="item.prefix"
+            />
+          </NuxtLink>
+        </div>
+        <div class="wins">
+          <h1 class="mobile-item-title">Wins</h1>
           <Number :number="item.wins" />
         </div>
-      </div>
-      <div class="leaderboard-col kd">
-        <div class="leaderboard-title">KD</div>
-        <div
-          v-for="(item, index) in lbData"
-          v-bind:key="item.wins + '-kd'"
-          class="leaderboard-item"
-        >
+        <div class="KD">
+          <h1 class="mobile-item-title">KD</h1>
           <Number :number="item.killDeathRatio" />
         </div>
-      </div>
-      <div class="leaderboard-col kda">
-        <div class="leaderboard-title">KDA</div>
-        <div
-          v-for="(item, index) in lbData"
-          v-bind:key="item.wins + '-kda'"
-          class="leaderboard-item"
-        >
+        <div class="KDA">
+          <h1 class="mobile-item-title">KDA</h1>
           <Number :number="item.killDeathAssistRatio" />
         </div>
       </div>
