@@ -1,11 +1,13 @@
 <template>
-  <span class="mc-rank" v-if="rankString !== 'Default'"
-    ><span :class="borderColor">[</span
+  <span class="mc-rank" v-if="rankString !== ''"
+    ><span :class="borderClass">[</span
     ><span :class="rankClass">{{ rankString }}</span
     ><span v-if="plus !== ''" :class="plusClass">{{ plus }}</span
-    ><span :class="borderColor">] {{ props.username }}</span></span
+    ><span :class="borderClass">] {{ username }}</span></span
   >
-  <span class="mc-rank GRAY" v-else>Default</span>
+  <span v-else class="mc-rank GRAY">
+    {{ username }}
+  </span>
 </template>
 
 <script setup>
@@ -18,95 +20,166 @@ const props = defineProps({
   otherRank: String,
   otherPrefix: String,
 });
+const {
+  username,
+  rank,
+  monthly,
+  plusColor,
+  monthlyColor,
+  otherRank,
+  otherPrefix,
+} = toRefs(props);
 
-let plus =
-  (props.rank === "MVP_PLUS") | (props.rank === "VIP_PLUS")
-    ? props.monthly !== undefined && props.monthly !== "NONE"
-      ? "++"
-      : "+"
-    : "";
-let plusClass = props.rank === "MVP_PLUS" ? `plus ${props.plusColor}` : "plus";
+// computed()
 
-let rankString = `Default`;
-switch (props.rank) {
-  case "VIP": {
-    rankString = "VIP";
-    break;
+const plus = computed(() => {
+  if (otherRank.value === "YOUTUBER") {
+    return "";
   }
-  case "VIP_PLUS": {
-    rankString = "VIP";
-    break;
+  if (otherRank.value === "ADMIN") {
+    return "";
   }
-  case "MVP": {
-    rankString = "MVP";
-    break;
+  if (otherRank.value === "GAME_MASTER") {
+    return "";
   }
-  case "MVP_PLUS": {
-    rankString = "MVP";
-    break;
+  if (otherPrefix.value?.includes("OWNER")) {
+    return "";
   }
-}
-if (rankString === "VIP") {
-  plusClass = "plus WHITE";
-}
+  if (otherPrefix.value?.includes("MOJANG")) {
+    return "";
+  }
+  if (otherPrefix.value?.includes("EVENTS")) {
+    return "";
+  }
+  if (otherPrefix.value?.includes("MCP")) {
+    return "";
+  }
+  if (otherPrefix.value?.includes("PIG")) {
+    return "+++";
+  }
+  if (rank.value === "VIP_PLUS") return "+";
+  if (rank.value === "MVP_PLUS") {
+    if (monthly.value !== undefined && monthly.value !== "NONE") {
+      return "++";
+    }
+    return "+";
+  }
+  return "";
+});
+const plusClass = computed(() => {
+  if (otherPrefix.value?.includes("PIG")) {
+    return "plus AQUA";
+  }
+  if (rank.value === "MVP_PLUS") return `plus ${plusColor.value}`;
+  if (rank.value === "VIP" || rank.value === "VIP_PLUS") return `plus WHITE`;
+  return "plus";
+});
 
-let rankClass =
-  !props.monthly || props.monthly !== "NONE"
-    ? "rank " + (props.monthlyColor !== undefined ? props.monthlyColor : "AQUA")
-    : rankString === "MVP"
-    ? "rank AQUA"
-    : "rank GREEN";
-if (rankString !== "MVP" && rankString !== "VIP") rankClass = "rank";
-if (rankString === "VIP") rankClass = "rank GREEN";
-let borderColor = rankClass.replace("rank", "");
+const rankString = computed(() => {
+  console.log(rank.value);
+  if (otherRank.value == "YOUTUBER") {
+    return "YOUTUBER";
+  }
+  if (otherRank.value === "ADMIN") {
+    return "ADMIN";
+  }
+  if (otherRank.value === "GAME_MASTER") {
+    return "GM";
+  }
+  if (otherPrefix.value?.includes("OWNER")) {
+    return "OWNER";
+  }
+  if (otherPrefix.value?.includes("MOJANG")) {
+    return "MOJANG";
+  }
+  if (otherPrefix.value?.includes("EVENTS")) {
+    return "EVENTS";
+  }
+  if (otherPrefix.value?.includes("MCP")) {
+    return "MCP";
+  }
+  if (otherPrefix.value?.includes("PIG")) {
+    return "PIG";
+  }
+  switch (rank.value) {
+    case "VIP": {
+      return "VIP";
+    }
+    case "VIP_PLUS": {
+      return "VIP";
+    }
+    case "MVP": {
+      return "MVP";
+    }
+    case "MVP_PLUS": {
+      return "MVP";
+    }
+    default: {
+      return "";
+    }
+  }
+});
 
-if (props.otherRank === "YOUTUBER") {
-  rankClass = "rank WHITE";
-  plus = "";
-  borderColor = "RED";
-  rankString = "YOUTUBER";
-}
-if (props.otherRank === "ADMIN") {
-  rankClass = "rank RED";
-  plus = "";
-  borderColor = "RED";
-  rankString = "ADMIN";
-}
-if (props.otherRank === "GAME_MASTER") {
-  rankClass = "rank DARK_GREEN";
-  plus = "";
-  borderColor = "DARK_GREEN";
-  rankString = "GM";
-}
-if (props.otherPrefix?.includes("OWNER")) {
-  rankClass = "rank RED";
-  plus = "";
-  borderColor = "RED";
-  rankString = "OWNER";
-}
-if (props.otherPrefix?.includes("MOJANG")) {
-  rankClass = "rank GOLD";
-  plus = "";
-  borderColor = "GOLD";
-  rankString = "MOJANG";
-}
-if (props.otherPrefix?.includes("EVENTS")) {
-  rankClass = "rank GOLD";
-  plus = "";
-  borderColor = "GOLD";
-  rankString = "EVENTS";
-}
-if (props.otherPrefix?.includes("MCP")) {
-  rankClass = "rank RED";
-  plus = "";
-  borderColor = "RED";
-  rankString = "MCP";
-}
-if (props.otherPrefix?.includes("PIG")) {
-  rankClass = "rank LIGHT_PURPLE";
-  plus = "+++";
-  plusClass = "plus AQUA";
-  borderColor = "LIGHT_PURPLE";
-  rankString = "PIG";
-}
+const rankClass = computed(() => {
+  if (otherRank.value === "YOUTUBER") {
+    return "rank WHITE";
+  }
+  if (otherRank.value === "ADMIN") {
+    return "rank RED";
+  }
+  if (otherRank.value === "GAME_MASTER") {
+    return "rank DARK_GREEN";
+  }
+  if (otherPrefix.value?.includes("OWNER")) {
+    return "rank RED";
+  }
+  if (otherPrefix.value?.includes("MOJANG")) {
+    return "rank GOLD";
+  }
+  if (otherPrefix.value?.includes("EVENTS")) {
+    return "rank GOLD";
+  }
+  if (otherPrefix.value?.includes("MCP")) {
+    return "rank RED";
+  }
+  if (otherPrefix.value?.includes("PIG")) {
+    return "rank LIGHT_PURPLE";
+  }
+  if (rankString.value === "") return "rank";
+  if (monthly.value !== undefined && monthly.value !== "NONE") {
+    return monthlyColor.value ?? "GOLD";
+  }
+  if (rankString.value === "VIP") return "rank GREEN";
+  if (rankString.value === "MVP") return "rank AQUA";
+  return "rank";
+});
+
+const borderClass = computed(() => {
+  if (!rank) return "GRAY";
+  if (otherRank.value === "YOUTUBER") {
+    return "RED";
+  }
+  if (otherRank.value === "ADMIN") {
+    return "RED";
+  }
+  if (otherRank.value === "GAME_MASTER") {
+    return "DARK_GREEN";
+  }
+  if (otherPrefix.value?.includes("OWNER")) {
+    return "RED";
+  }
+  if (otherPrefix.value?.includes("MOJANG")) {
+    return "GOLD";
+  }
+  if (otherPrefix.value?.includes("EVENTS")) {
+    return "GOLD";
+  }
+  if (otherPrefix.value?.includes("MCP")) {
+    return "RED";
+  }
+  if (otherPrefix.value?.includes("PIG")) {
+    return "LIGHT_PURPLE";
+  }
+  return rankClass.value?.replace("rank", "") ?? "GRAY";
+});
 </script>

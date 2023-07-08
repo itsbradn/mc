@@ -1212,3 +1212,127 @@ section {
     }
   }
 }
+
+.leaderboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 16px;
+  > .leaderboard-header {
+    font-size: 32px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+}
+
+.leaderboard-content {
+  min-width: 1100px;
+  height: 650px;
+  width: fit-content;
+  display: flex;
+  > .leaderboard-col {
+    flex: 1;
+    border-right: 1px solid var(--border-color-light);
+    margin-left: 16px;
+    &:last-child {
+      border-right: none;
+      flex: 0;
+    }
+    &.place {
+      flex: 0;
+      margin-left: 0;
+      min-width: 40px;
+    }
+    &.username {
+      padding-right: 125px;
+      > * {
+        &:not(:first-child) {
+          cursor: pointer;
+          display: block;
+          text-decoration: none;
+        }
+      }
+    }
+    > * {
+      height: 25px;
+    }
+  }
+}
+.leaderboard-spinner {
+  width: 1100px;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderboard-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-300);
+}
+
+.paginated {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  > .page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: var(--background-card-btn);
+    font-weight: 400;
+    color: var(--text-300);
+    cursor: pointer;
+    transition: all 70ms ease-in-out;
+
+    &:hover {
+      color: var(--text-100);
+    }
+
+    &.selected {
+      color: var(--text-100);
+    }
+
+    > svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}
+
+.page-loader {
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  backdrop-filter: blur(0px);
+  background: transparent;
+  pointer-events: none;
+  transition: all 150ms ease-in-out;
+
+  > * {
+    pointer-events: none;
+    opacity: 0%;
+    transition: all 150ms ease-in-out;
+  }
+
+  &.active {
+    backdrop-filter: blur(15px);
+    background: rgb(var(--background-primary), 0.5);
+    > * {
+      opacity: 100%;
+    }
+  }
+}
