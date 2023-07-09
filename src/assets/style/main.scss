@@ -136,6 +136,34 @@ h5 {
   display: none;
 }
 
+.badge {
+  height: 32px;
+  width: 32px;
+  > img {
+    height: 32px;
+    width: 32px;
+  }
+
+  > .tooltip {
+    position: absolute;
+    transform: translateY(-200%) translateX(-25%);
+    opacity: 0%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 4px 18px;
+    border-radius: 4px;
+    background-color: var(--background-card-btn);
+    transition: opacity 35ms ease-in-out, transform 55ms ease-in-out;
+    box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+
+    &.hover {
+      transform: translateY(-280%) translateX(-25%);
+      opacity: 100%;
+    }
+  }
+}
+
 .player-header {
   height: 275px;
   display: flex;
@@ -155,6 +183,12 @@ h5 {
     > h1 {
       font-weight: 600;
       font-size: 32px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      > .mc-rank {
+        margin-right: 8px;
+      }
     }
     > h2 {
       font-size: 16px;

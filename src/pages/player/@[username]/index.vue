@@ -13,8 +13,31 @@
               :otherRank="props.hypixel.rank"
               :otherPrefix="props.hypixel.prefix"
             />
+
+            <Badge
+              v-if="props.hypixel.badges.friend == true"
+              path="/img/badge/friend.svg"
+              tooltip="Friend"
+            />
+            <Badge
+              v-if="props.mojang.username == 'bradn'"
+              path="/img/badge/staff.svg"
+              tooltip="Staff Member"
+            />
           </h1>
-          <h1 v-else>{{ props.mojang.username }}</h1>
+          <h1 v-else>
+            {{ props.mojang.username }}
+            <Badge
+              v-if="props.mojang.badges.friend == true"
+              path="/img/badge/friend.svg"
+              tooltip="Friend"
+            />
+            <Badge
+              v-if="props.mojang.username == 'bradn'"
+              path="/img/badge/staff.svg"
+              tooltip="Staff Member"
+            />
+          </h1>
           <h2>{{ props.mojang.views ?? 0 }} views / month</h2>
           <div class="divider" v-if="props.hypixel"></div>
           <div class="overview-stats" v-if="props.hypixel">
@@ -112,12 +135,18 @@ useSeoMeta({
   ogTitle: props.mojang
     ? props.mojang.username + " | bradn stats"
     : "bradn stats",
-  ogImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + props.mojang.username : '',
+  ogImage: props.mojang
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      props.mojang.username
+    : "",
   themeColor: "#FC5C7D",
   description: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
   ogDescription: `View accurate and frequently updated Hypixel and in depth mode specific stats.`,
-  twitterImage: props.mojang ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + props.mojang.username : '',
-  twitterCard: 'summary_large_image'
+  twitterImage: props.mojang
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      props.mojang.username
+    : "",
+  twitterCard: "summary_large_image",
 });
 
 onMounted(() => {
