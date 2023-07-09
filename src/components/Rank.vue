@@ -76,7 +76,6 @@ const plusClass = computed(() => {
 });
 
 const rankString = computed(() => {
-  console.log(rank.value);
   if (otherRank.value == "YOUTUBER") {
     return "YOUTUBER";
   }
