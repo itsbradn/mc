@@ -525,6 +525,10 @@ section {
       }
     }
   }
+
+  &.no-marg {
+    margin-bottom: 0;
+  }
 }
 
 .card-horz {

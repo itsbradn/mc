@@ -75,7 +75,22 @@
           <SkinDisplay :skinUrl="mojang.skin.url" :capeUrl="mojang.cape.url" />
         </div>
       </div>
-      <StatsMMModes :stats="hypixel" />
+      <div class="player-pages no-marg">
+        <button
+          :class="`page-btn${selectedTab === 'modes' ? ' active' : ''}`"
+          @click="selectedTab = 'modes'"
+        >
+          Modes
+        </button>
+        <button
+          :class="`page-btn${selectedTab === 'maps' ? ' active' : ''}`"
+          @click="selectedTab = 'maps'"
+        >
+          Maps
+        </button>
+      </div>
+      <StatsMMModes :stats="hypixel" v-if="hypixel && selectedTab == 'modes'" />
+      <StatsMMMaps :stats="hypixel" v-if="hypixel && selectedTab == 'maps'" />
     </div>
     <div class="content-sub">
       <div class="card" v-if="hypixel">
