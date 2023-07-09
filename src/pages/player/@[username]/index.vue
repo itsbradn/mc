@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="skin">
-          <canvas id="skin_container"></canvas>
+          <SkinDisplay :skinUrl="mojang.skin.url" :capeUrl="mojang.cape.url" />
         </div>
       </div>
       <NuxtLink
@@ -127,7 +127,7 @@ definePageMeta({
   key: (route) => route.fullPath,
 });
 
-const props = defineProps(["mojang", "hypixel", "renderSkin"]);
+const props = defineProps(["mojang", "hypixel"]);
 useSeoMeta({
   title: props.mojang
     ? props.mojang.username + " | bradn stats"
@@ -150,6 +150,6 @@ useSeoMeta({
 });
 
 onMounted(() => {
-  props.renderSkin();
+  // props.renderSkin();
 });
 </script>

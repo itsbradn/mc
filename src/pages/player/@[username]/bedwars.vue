@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="skin">
-          <canvas id="skin_container"></canvas>
+          <SkinDisplay :skinUrl="mojang.skin.url" :capeUrl="mojang.cape.url" />
         </div>
       </div>
       <div class="card-horz space nomarg" v-if="props.hypixel">
@@ -1538,7 +1538,7 @@ definePageMeta({
   key: (route) => route.fullPath,
 });
 
-const props = defineProps(["mojang", "hypixel", "renderSkin"]);
+const props = defineProps(["mojang", "hypixel"]);
 useSeoMeta({
   title: props.mojang
     ? props.mojang.username + " - Bedwars | bradn stats"
@@ -1547,18 +1547,18 @@ useSeoMeta({
     ? props.mojang.username + " - Bedwars | bradn stats"
     : "bradn stats",
   ogImage: props.mojang
-    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" + props.mojang.username
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      props.mojang.username
     : "",
   themeColor: "#FC5C7D",
   description: `View accurate and frequently updated Hypixel Bedwars and other modes stats.`,
   ogDescription: `View accurate and frequently updated Hypixel Bedwars and other modes stats.`,
   twitterImage: props.mojang
-    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" + props.mojang.username
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      props.mojang.username
     : "",
-  twitterCard: 'summary_large_image'
+  twitterCard: "summary_large_image",
 });
 
-onMounted(() => {
-  props.renderSkin();
-});
+onMounted(() => {});
 </script>
