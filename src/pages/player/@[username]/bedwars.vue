@@ -13,6 +13,16 @@
               :otherRank="props.hypixel.rank"
               :otherPrefix="props.hypixel.prefix"
             />
+            <Badge
+              v-if="props.hypixel.badges.friend == true"
+              path="/img/badge/friend.svg"
+              tooltip="Friend"
+            />
+            <Badge
+              v-if="props.mojang.username == 'bradn'"
+              path="/img/badge/staff.svg"
+              tooltip="Staff Member"
+            />
           </h1>
           <h1 v-else>{{ props.mojang.username }}</h1>
           <h2>{{ props.mojang.views ?? 0 }} views / month</h2>
@@ -1559,6 +1569,4 @@ useSeoMeta({
     : "",
   twitterCard: "summary_large_image",
 });
-
-onMounted(() => {});
 </script>

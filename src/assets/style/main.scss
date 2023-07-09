@@ -515,6 +515,15 @@ section {
       background-color: rgb(var(--skin-highlight));
       box-shadow: 0px 0px 8px 0px rgba(var(--skin-highlight), 0.7);
     }
+
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--text-300);
+
+      &:hover {
+        background-color: var(--background-card-btn);
+      }
+    }
   }
 }
 

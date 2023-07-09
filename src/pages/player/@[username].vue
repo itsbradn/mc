@@ -17,25 +17,35 @@
         >
         <NuxtLink
           class="page-btn"
+          :to="'/player/@' + route.params.username + '/murdermystery'"
+          activeClass="active"
+          v-if="hypixel"
+          >Murder Mystery</NuxtLink
+        >
+        <!-- <NuxtLink
+          class="page-btn"
           :to="'/player/@' + route.params.username + '/skyblock'"
           activeClass="active"
           v-if="hypixel"
           >Skyblock</NuxtLink
-        >
-        <NuxtLink
+        > -->
+        <a class="page-btn disabled">Skyblock</a>
+        <!-- <NuxtLink
           class="page-btn"
           :to="'/player/@' + route.params.username + '/skywars'"
           activeClass="active"
           v-if="hypixel"
           >Skywars</NuxtLink
-        >
-        <NuxtLink
+        > -->
+        <a class="page-btn disabled">Skywars</a>
+        <!-- <NuxtLink
           class="page-btn"
           :to="'/player/@' + route.params.username + '/duels'"
           activeClass="active"
           v-if="hypixel"
           >Duels</NuxtLink
-        >
+        > -->
+        <a class="page-btn disabled">Duels</a>
       </div>
       <NuxtPage :hypixel="hypixel" :mojang="mojang" />
     </div>
