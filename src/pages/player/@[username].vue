@@ -136,13 +136,7 @@ const updateSkin = () => {
 
   // skinViewer.loadCape("/img/demo-cape.webp", { backEquipment: "elytra" });
   skinViewer.animation = new StillAnim();
-}
 
-onMounted(() => {
-
-  if (!mojang.value) throw new Error("no response");
-
-  // updateSkin();
   Vibrant.from(mojang.value.skin.url)
     .getPalette()
     .then(function (palette: any) {
@@ -152,5 +146,12 @@ onMounted(() => {
         vib.join(", ")
       );
     });
+}
+
+onMounted(() => {
+
+  if (!mojang.value) throw new Error("no response");
+
+  // updateSkin();
 });
 </script>
