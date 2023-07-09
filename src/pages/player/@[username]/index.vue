@@ -78,6 +78,9 @@
       <Accordion id="tnt-games" title="TNT Games" v-if="props.hypixel">
         <StatsTNTGames :stats="props.hypixel" />
       </Accordion>
+      <Accordion id="build-battle" title="Build Battle" v-if="props.hypixel">
+        <StatsBuildBattle :stats="props.hypixel" />
+      </Accordion>
     </div>
     <div class="content-sub">
       <div class="card" v-if="props.hypixel">
