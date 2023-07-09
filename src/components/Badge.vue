@@ -18,7 +18,6 @@ const onHover = () => {
   badgeTooltip.value.classList.add("hover");
 };
 const onLeave = () => {
-  console.log("left");
   badgeTooltip.value.classList.remove("hover");
 };
 </script>

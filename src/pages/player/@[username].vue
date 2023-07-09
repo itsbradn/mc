@@ -54,8 +54,6 @@ import Number from "~/components/Number.vue";
 
 const route = useRoute();
 
-
-
 const { data: mojang } = await useFetch<MinecraftPlayerResponse>(
   "https://api.bradn.dev/api/v1/minecraft/player/" + route.params.username
 );
@@ -71,10 +69,16 @@ useSeoMeta({
   ogTitle: mojang.value
     ? mojang.value.username + " | bradn stats"
     : "bradn stats",
-  ogImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + mojang.value.username : '',
+  ogImage: mojang.value
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      mojang.value.username
+    : "",
   themeColor: "#FC5C7D",
-  twitterImage: mojang.value ? 'https://api.bradn.dev/api/v1/minecraft/thumbnail/' + mojang.value.username : '',
-  twitterCard: 'summary_large_image'
+  twitterImage: mojang.value
+    ? "https://api.bradn.dev/api/v1/minecraft/thumbnail/" +
+      mojang.value.username
+    : "",
+  twitterCard: "summary_large_image",
 });
 useHead({
   link: [
@@ -140,16 +144,24 @@ const updateSkin = () => {
   Vibrant.from(mojang.value.skin.url)
     .getPalette()
     .then(function (palette: any) {
+      let vibPal = palette["Vibrant"];
+      if (!vibPal) {
+        document.documentElement.style.setProperty(
+          "--skin-highlight",
+          "160, 76, 192"
+        );
+        console.log("No vib pal?");
+        return;
+      }
       let vib = palette["Vibrant"].getRgb();
       document.documentElement.style.setProperty(
         "--skin-highlight",
         vib.join(", ")
       );
     });
-}
+};
 
 onMounted(() => {
-
   if (!mojang.value) throw new Error("no response");
 
   // updateSkin();
