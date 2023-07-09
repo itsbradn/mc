@@ -1,6 +1,6 @@
 <template>
-  <div class="badge" @mouseenter="onHover" @mouseleave="onLeave">
-    <img ref="badgeImage" :src="path" alt="" />
+  <div class="badge" @mouseleave="onLeave">
+    <img ref="badgeImage" @mouseenter="onHover" :src="path" alt="" />
     <div ref="badgeTooltip" class="tooltip">{{ tooltip }}</div>
   </div>
 </template>
