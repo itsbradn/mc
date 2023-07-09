@@ -6,7 +6,7 @@
       <div class="stat center-horz inline">
         <div class="content">
           <h1>Wins</h1>
-          <h2>{{ tnt.wins }}</h2>
+          <h2><Number :number="tnt.wins" /></h2>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="stat center-horz inline">
         <div class="content">
           <h1>Winstreak</h1>
-          <h2>{{ tnt.winstreak }}</h2>
+          <h2><Number :number="tnt.winsstreak" /></h2>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
       <div class="stat mini center-horz inline">
         <div class="content">
           <h1>Coins</h1>
-          <h2>{{ tnt.coins }}</h2>
+          <h2><Number :number="tnt.coins" /></h2>
         </div>
       </div>
     </div>
