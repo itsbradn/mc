@@ -78,6 +78,18 @@
       <Accordion id="tnt-games" title="TNT Games" v-if="props.hypixel">
         <StatsTNTGames :stats="props.hypixel" />
       </Accordion>
+      <NuxtLink
+        v-if="props.mojang"
+        :to="'/player/@' + props.mojang.username + '/murdermystery'"
+        class="fake-accordion"
+      >
+        <div class="fake-accordion__header">
+          <div class="header__title">Murder Mystery</div>
+          <div class="header__icon">
+            <Icon name="material-symbols:keyboard-arrow-down-rounded" />
+          </div>
+        </div>
+      </NuxtLink>
       <Accordion id="build-battle" title="Build Battle" v-if="props.hypixel">
         <StatsBuildBattle :stats="props.hypixel" />
       </Accordion>
