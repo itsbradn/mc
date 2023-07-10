@@ -9,6 +9,7 @@ const props = defineProps({
   skinUrl: String,
   capeUrl: String,
   canvasId: String,
+  vibColorId: String,
 });
 const skinDisplay = ref(null);
 
@@ -71,10 +72,17 @@ onMounted(() => {
         return;
       }
       let vib = p["Vibrant"].getRgb();
-      document.documentElement.style.setProperty(
+      if (props.vibColorId !== undefined) {
+      document.querySelector(`#${props.vibColorId}`).style.setProperty(
         "--skin-highlight",
         vib.join(", ")
       );
+      } else {
+        document.documentElement.style.setProperty(
+          "--skin-highlight",
+          vib.join(", ")
+        );
+      }
     });
   }
 });

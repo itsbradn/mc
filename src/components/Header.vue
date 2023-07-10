@@ -16,6 +16,9 @@
         </form>
       </div>
     </div>
+    <div class="desktop-only">
+      <NuxtLink to="/leaderboard" class="header__item">Leaderboards</NuxtLink>
+    </div>
     <div class="mobile-drop-btn" @click="mobileDrop = !mobileDrop">
       <Icon v-if="!mobileDrop" name="ci:hamburger-lg" />
       <Icon v-else name="material-symbols:close-rounded" />
