@@ -45,13 +45,20 @@ class StillAnim extends PlayerAnimation {
   }
 }
 
+const parseSkin = (url) => {
+  if (url === undefined) return "";
+  if (typeof url !== "string") return "";
+  if (url.endsWith("texture/")) return "";
+  return url;
+};
+
 onMounted(() => {
   let skinViewer = new SkinViewer({
     canvas: skinDisplay.value,
     width: 225,
     height: 325,
-    skin: props.skinUrl ? props.skinUrl : "",
-    cape: props.capeUrl ? props.capeUrl : "",
+    skin: parseSkin(props.skinUrl),
+    cape:parseSkin(props.capeUrl),
   });
   skinViewer.controls.enableZoom = false;
   skinViewer.animation = new StillAnim();
@@ -73,10 +80,9 @@ onMounted(() => {
       }
       let vib = p["Vibrant"].getRgb();
       if (props.vibColorId !== undefined) {
-      document.querySelector(`#${props.vibColorId}`).style.setProperty(
-        "--skin-highlight",
-        vib.join(", ")
-      );
+        document
+          .querySelector(`#${props.vibColorId}`)
+          .style.setProperty("--skin-highlight", vib.join(", "));
       } else {
         document.documentElement.style.setProperty(
           "--skin-highlight",
