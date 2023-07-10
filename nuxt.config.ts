@@ -31,4 +31,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["skinview3d"],
   },
+  nitro: {
+    preset: 'cloudflare'
+  }
 });
