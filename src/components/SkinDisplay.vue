@@ -68,7 +68,7 @@ onMounted(() => {
       quality: 1,
     });
 
-    const palette = v.getPalette().then((p) => {
+    v.getPalette().then((p) => {
       let vibPal = p["Vibrant"];
       if (!vibPal) {
         document.documentElement.style.setProperty(

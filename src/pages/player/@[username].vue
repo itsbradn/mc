@@ -1,4 +1,7 @@
 <template>
+  <div :class="`page-loader ${loading === true ? 'active' : ''}`">
+    <SquareSpinner :animation-duration="6000" :size="50" color="#6a82fb" />
+  </div>
   <section v-if="mojang">
     <div class="section-content">
       <div class="player-pages">
@@ -58,9 +61,7 @@ declare global {
     static from(src: any): any;
   }
 }
-import { SkinViewer, PlayerAnimation } from "skinview3d";
 import { MinecraftPlayerResponse } from "../../types/minecraftPlayer";
-import Number from "~/components/Number.vue";
 
 const route = useRoute();
 
@@ -71,6 +72,11 @@ const { data: hypixel } = await useFetch<any>(
   "https://api.bradn.dev/api/v1/minecraft/hypixel/" + mojang.value?.uuid,
   { server: false }
 );
+
+const loading = computed(() => {
+  if (hypixel.value?.username === undefined) return true;
+  return false;
+});
 
 useSeoMeta({
   title: mojang.value
