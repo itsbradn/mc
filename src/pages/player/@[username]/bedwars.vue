@@ -1453,7 +1453,7 @@
         <div class="stat center">
           <div class="content">
             <h1>Level</h1>
-            <h2>9,999</h2>
+            <h2><Number :number="props.hypixel.level" /></h2>
           </div>
         </div>
         <div class="stat center" v-if="props.hypixel.experience">
