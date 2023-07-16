@@ -169,6 +169,48 @@
       </div>
     </div>
   </div>
+  <div class="stat-bar centered space-top">
+    <div class="bar">
+      <div class="bar__title">
+        Blast Protection Perk {{ tnt.modes.tntTag.perks.blastProt }}/5
+      </div>
+      <div class="bar-wrapper">
+        <div
+          class="bar mana"
+          :style="`width: ${(tnt.modes.tntTag.perks.blastProt / 5) * 100}%`"
+        ></div>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="bar__title">Speedy Perk {{ tnt.modes.tntTag.perks.speedy }}/4</div>
+      <div class="bar-wrapper">
+        <div
+          class="bar mana"
+          :style="`width: ${(tnt.modes.tntTag.perks.speedy / 4) * 100}%`"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="stat-bar centered space-top-sm">
+    <div class="bar">
+      <div class="bar__title">Speed It Up Perk {{ tnt.modes.tntTag.perks.speedItUp }}/5</div>
+      <div class="bar-wrapper">
+        <div
+          class="bar mana"
+          :style="`width: ${(tnt.modes.tntTag.perks.speedItUp / 5) * 100}%`"
+        ></div>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="bar__title">Slow It Down Perk {{ tnt.modes.tntTag.perks.slowItDown }}/5</div>
+      <div class="bar-wrapper">
+        <div
+          class="bar mana"
+          :style="`width: ${(tnt.modes.tntTag.perks.slowItDown / 5) * 100}%`"
+        ></div>
+      </div>
+    </div>
+  </div>
   <h1 class="accordion-subtitle">Bow Spleef</h1>
   <div class="divider center"></div>
   <div class="card-horz">
