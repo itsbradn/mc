@@ -50,7 +50,7 @@
         > -->
         <a class="page-btn disabled">Duels</a>
       </div>
-      <NuxtPage :hypixel="hypixel" :mojang="mojang" />
+      <NuxtPage :hypixel="hypixel" :mojang="mojang" :resources="hypixelResources" />
     </div>
   </section>
 </template>
@@ -70,6 +70,11 @@ const { data: mojang } = await useFetch<MinecraftPlayerResponse>(
 );
 const { data: hypixel } = await useFetch<any>(
   "https://api.bradn.dev/api/v1/minecraft/hypixel/" + mojang.value?.uuid,
+  { server: false }
+);
+
+const { data: hypixelResources } = await useFetch<any>(
+  "https://api.bradn.dev/api/v1/minecraft/resources/hypixel/games",
   { server: false }
 );
 

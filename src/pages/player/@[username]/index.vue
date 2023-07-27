@@ -108,6 +108,21 @@
             <h2><DateFormatAgo :date="props.hypixel.lastLogin" /></h2>
           </div>
         </div>
+        <div
+          class="stat center"
+          v-if="props.hypixel.online && props.hypixel.currentlyPlaying"
+        >
+          <div class="content">
+            <h1>Currently Playing</h1>
+            <h2>
+              {{
+                props.resources
+                  ? props.resources.games[props.hypixel.currentlyPlaying].name
+                  : props.hypixel.currentlyPlaying
+              }}
+            </h2>
+          </div>
+        </div>
       </div>
       <div class="card" v-if="props.hypixel">
         <div class="stat center">
@@ -142,7 +157,7 @@ definePageMeta({
   key: (route) => route.fullPath,
 });
 
-const props = defineProps(["mojang", "hypixel"]);
+const props = defineProps(["mojang", "hypixel", "resources"]);
 useSeoMeta({
   title: props.mojang
     ? props.mojang.username + " | bradn stats"
