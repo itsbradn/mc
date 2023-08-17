@@ -1,58 +1,64 @@
 <template>
-  <div :class="`page-loader ${loading === true ? 'active' : ''}`">
-    <SquareSpinner :animation-duration="6000" :size="50" color="#6a82fb" />
-  </div>
-  <section v-if="mojang">
-    <div class="section-content">
-      <div class="player-pages">
-        <NuxtLink
-          class="page-btn"
-          :to="'/player/@' + route.params.username"
-          exactActiveClass="active"
-          >Overview</NuxtLink
-        >
-        <NuxtLink
-          class="page-btn"
-          :to="'/player/@' + route.params.username + '/bedwars'"
-          activeClass="active"
-          v-if="hypixel"
-          >Bedwars</NuxtLink
-        >
-        <NuxtLink
-          class="page-btn"
-          :to="'/player/@' + route.params.username + '/murdermystery'"
-          activeClass="active"
-          v-if="hypixel"
-          >Murder Mystery</NuxtLink
-        >
-        <!-- <NuxtLink
+  <div>
+    <div :class="`page-loader ${loading === true ? 'active' : ''}`">
+      <SquareSpinner :animation-duration="6000" :size="50" color="#6a82fb" />
+    </div>
+    <section v-if="mojang">
+      <div class="section-content">
+        <div class="player-pages">
+          <NuxtLink
+            class="page-btn"
+            :to="'/player/@' + route.params.username"
+            exactActiveClass="active"
+            >Overview</NuxtLink
+          >
+          <NuxtLink
+            class="page-btn"
+            :to="'/player/@' + route.params.username + '/bedwars'"
+            activeClass="active"
+            v-if="hypixel"
+            >Bedwars</NuxtLink
+          >
+          <NuxtLink
+            class="page-btn"
+            :to="'/player/@' + route.params.username + '/murdermystery'"
+            activeClass="active"
+            v-if="hypixel"
+            >Murder Mystery</NuxtLink
+          >
+          <!-- <NuxtLink
           class="page-btn"
           :to="'/player/@' + route.params.username + '/skyblock'"
           activeClass="active"
           v-if="hypixel"
           >Skyblock</NuxtLink
         > -->
-        <a class="page-btn disabled">Skyblock</a>
-        <!-- <NuxtLink
+          <a class="page-btn disabled">Skyblock</a>
+          <!-- <NuxtLink
           class="page-btn"
           :to="'/player/@' + route.params.username + '/skywars'"
           activeClass="active"
           v-if="hypixel"
           >Skywars</NuxtLink
         > -->
-        <a class="page-btn disabled">Skywars</a>
-        <!-- <NuxtLink
+          <a class="page-btn disabled">Skywars</a>
+          <!-- <NuxtLink
           class="page-btn"
           :to="'/player/@' + route.params.username + '/duels'"
           activeClass="active"
           v-if="hypixel"
           >Duels</NuxtLink
         > -->
-        <a class="page-btn disabled">Duels</a>
+          <a class="page-btn disabled">Duels</a>
+        </div>
+        <NuxtPage
+          :hypixel="hypixel"
+          :mojang="mojang"
+          :resources="hypixelResources"
+        />
       </div>
-      <NuxtPage :hypixel="hypixel" :mojang="mojang" :resources="hypixelResources" />
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">

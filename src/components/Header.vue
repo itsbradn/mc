@@ -29,7 +29,7 @@
       <div class="search mini">
         <form @submit.prevent="search" class="bar">
           <Icon name="material-symbols:search-rounded" />
-          <input type="text" placeholder="Find a user" v-model="searchName" />
+          <input type="text" placeholder="Find a user" v-model="searchNameHeader" />
         </form>
         <button @click="search">Search</button>
       </div>

@@ -12,8 +12,6 @@ export default defineNuxtConfig({
     ],
   },
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
-
     head: {
       script: [
         {
@@ -32,6 +30,6 @@ export default defineNuxtConfig({
     transpile: ["skinview3d"],
   },
   nitro: {
-    preset: 'cloudflare'
-  }
+    preset: "cloudflare",
+  },
 });

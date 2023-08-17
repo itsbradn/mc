@@ -58,7 +58,7 @@ onMounted(() => {
     width: 225,
     height: 325,
     skin: parseSkin(props.skinUrl),
-    cape:parseSkin(props.capeUrl),
+    cape: parseSkin(props.capeUrl),
   });
   skinViewer.controls.enableZoom = false;
   skinViewer.animation = new StillAnim();
@@ -80,9 +80,7 @@ onMounted(() => {
       }
       let vib = p["Vibrant"].getRgb();
       if (props.vibColorId !== undefined) {
-        document
-          .querySelector(`#${props.vibColorId}`)
-          .style.setProperty("--skin-highlight", vib.join(", "));
+        skinDisplay.value.parentElement.style.setProperty("--skin-highlight", vib.join(", "));
       } else {
         document.documentElement.style.setProperty(
           "--skin-highlight",
